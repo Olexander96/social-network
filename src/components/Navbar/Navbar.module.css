@@ -1,0 +1,13 @@
+.nav {
+  grid-area: n;
+  background-color: rgb(141, 122, 96);
+}
+
+.list {
+  list-style: none;
+}
+
+.list li a {
+  color: white;
+  text-decoration: none;
+}

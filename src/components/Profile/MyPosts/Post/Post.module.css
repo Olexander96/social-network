@@ -1,0 +1,14 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: silver;
+    padding: 5px;
+}
+.item:not(:last-child) {
+    margin-bottom: 15px;
+}
+.item img {
+    width: 100px;
+    border-radius: 50%;
+}
