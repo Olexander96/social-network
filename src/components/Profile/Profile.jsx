@@ -5,9 +5,11 @@ import MyPosts from './MyPosts/MyPosts'
 const Profile = () => {
     return (
         <div className={p.content}>
-            <img src='https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg' alt='content-bg'/>
-            <div>
-                ava + description
+            <div className={p.personal}>
+                <img src='https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg' alt='content-bg'/>
+                <div className={p.info}>
+                    ava + description
+                </div>
             </div>
             <MyPosts/>
         </div>
