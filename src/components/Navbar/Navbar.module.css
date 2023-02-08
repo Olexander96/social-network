@@ -1,13 +1,18 @@
 .nav {
   grid-area: n;
   background-color: rgb(57, 58, 58);
+  padding: 15px;
 }
 
-.list {
-  list-style: none;
+.item:not(:last-child) {
+  margin-bottom: 10px;
 }
 
-.list li a {
+.item a {
   color: white;
   text-decoration: none;
+}
+
+.item .activeLink {
+  color: gold;
 }

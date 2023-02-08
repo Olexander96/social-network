@@ -1,27 +1,27 @@
 import React from 'react';
 import n from './Navbar.module.css';
+import {NavLink} from "react-router-dom";
 
+let setActive = link => link.isActive ? n.activeLink : ""; // якщо лінк активний то додає клас activeLink
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <nav className={n.nav}>
-            <ul className={n.list}>
-                <li>
-                    <a href="#">Profile</a>
-                </li>
-                <li>
-                    <a href="#">Messages</a>
-                </li>
-                <li>
-                    <a href="#">News</a>
-                </li>
-                <li>
-                    <a href="#">Music</a>
-                </li>
-                <li>
-                    <a href="#">Settings</a>
-                </li>
-            </ul>
+            <div className={n.item}>
+                <NavLink to="/profile" className= {setActive}>Profile</NavLink>
+            </div>
+            <div className={n.item}>
+                <NavLink to="/dialogs" className = {setActive}>Dialogs</NavLink>
+            </div>
+            <div className={n.item}>
+                <NavLink to="/news" className = {setActive}>News</NavLink>
+            </div>
+            <div className={n.item}>
+                <NavLink to="/music" className = {setActive}>Music</NavLink>
+            </div>
+            <div className={n.item}>
+                <NavLink to="/settings" className = {setActive}>Settings</NavLink>
+            </div>
         </nav>
     )
 }
