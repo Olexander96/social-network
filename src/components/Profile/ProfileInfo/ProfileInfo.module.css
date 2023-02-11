@@ -1,0 +1,8 @@
+
+.imageBlock img {
+    max-height: 150px;
+    width: 100%;
+}
+.descriptionBlock {
+    padding: 10px;
+}

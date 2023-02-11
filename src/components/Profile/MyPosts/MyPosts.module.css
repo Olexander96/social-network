@@ -1,6 +1,13 @@
+.postsBlock {
+    padding: 10px;
+}
 
+.writePost textarea {
+    margin-bottom: 10px;
+}
 .posts {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 10px 0px 10px;
 }
