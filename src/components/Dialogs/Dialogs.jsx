@@ -18,21 +18,32 @@ const Message = (props) => {
     )
 }
 
+const dialogs = [
+    {id: 1, name: "Dimon"},
+    {id: 2, name: "Ehor"},
+    {id: 3, name: "Olya"},
+    {id: 4, name: "Vitalik"},
+    {id: 5, name: "Sasha"},
+    {id: 6, name: "Alyona"}
+];
+
+const messages = [
+    {id: 1, message: "Hello"},
+    {id: 2, message: "How are you?"},
+    {id: 3, message: "How are your it-kanasutra?"}
+];
+
+const dialogsElements = dialogs.map(d => <DialogItem id={d.id} name={d.name}/>); // створюємо масив тегів
+const messagesElements = messages.map(m => <Message message={m.message}/>);
+
 const Dialogs = (props) => {
     return (
         <div className={d.dialogs}>
             <div className={d.dialogsItems}>
-                <DialogItem id="1" name="Dimon"/>
-                <DialogItem id="2" name="Ehor"/>
-                <DialogItem id="3" name="Olya"/>
-                <DialogItem id="4" name="Vitalik"/>
-                <DialogItem id="5" name="Sasha"/>
-                <DialogItem id="6" name="Alyona"/>
+                { dialogsElements }
             </div>
             <div className={d.messagesItems}>
-                <Message message="Hello"/>
-                <Message message="How are you?"/>
-                <Message message="How are your it-kanasutra?"/>
+                { messagesElements }
             </div>
         </div>
     )
