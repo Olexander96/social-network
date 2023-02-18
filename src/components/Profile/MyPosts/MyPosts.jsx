@@ -6,6 +6,7 @@ const posts = [
     {id: 1, message: "Hi, how are you?", likesCount: 10},
     {id: 2, message: "It is my first post", likesCount: 15}
 ];
+
 const postsElements = posts.map(p => <Post message={p.message} likesCount= {m.likesCount}/>);
 
 const MyPosts = (props) => {
