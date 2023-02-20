@@ -5,8 +5,8 @@ import Message from "./Message/Message"
 
 const Dialogs = (props) => {
 
-    const dialogsElements = props.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>); // створюємо масив тегів
-    const messagesElements = props.messages.map(m => <Message message={m.message}/>);
+    const dialogsElements = props.state.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>); // створюємо масив тегів
+    const messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
 
     return (
         <div className={d.dialogs}>
