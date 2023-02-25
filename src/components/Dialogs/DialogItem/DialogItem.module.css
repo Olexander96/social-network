@@ -1,3 +1,15 @@
 .dialog {
-    color: darkslategray; /*#0099ff*/
+    display: flex;
+    align-items: center;
+}
+
+.dialog:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.dialog img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
 }

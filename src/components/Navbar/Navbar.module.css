@@ -1,6 +1,13 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(57, 58, 58);
+}
+
 .nav {
   grid-area: n;
-  background-color: rgb(57, 58, 58);
+  
   padding: 15px;
 }
 
@@ -16,3 +23,11 @@
 .item .activeLink {
   color: gold;
 }
+
+.friendsList {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
