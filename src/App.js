@@ -13,7 +13,7 @@ function App (props) {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Navbar state={ props.state.dialogsPage.dialogs}/>
+                <Navbar state={ props.state.sidebar }/>
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/profile/*" element={<Profile state={ props.state.profilePage }/>}/>

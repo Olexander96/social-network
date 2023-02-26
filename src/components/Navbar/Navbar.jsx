@@ -5,9 +5,8 @@ import Friend from './Friend/Friend';
 
 const setActive = link => link.isActive ? n.activeLink : ""; // якщо лінк активний то додає клас activeLink
 
-
 const Navbar = (props) => {
-    // const popularFriends = props.state.map(friend => <Friend name={friend.name} avatar={friend.avatar}/>)
+    const popularFriends = props.state.popularFriends.map(friend => <Friend name={friend.name} avatar={friend.avatar}/>)
 
     return (
         <div className={n.block}>
@@ -29,9 +28,7 @@ const Navbar = (props) => {
                 </div>
             </nav>
             <ul className={n.friendsList}>
-                <Friend name={props.state[1].name} avatar={props.state[1].avatar}/>
-                <Friend name={props.state[2].name} avatar={props.state[2].avatar}/>
-                <Friend name={props.state[3].name} avatar={props.state[3].avatar}/>
+                { popularFriends }
             </ul>
         </div>
         
