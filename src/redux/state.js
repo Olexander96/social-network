@@ -17,7 +17,7 @@ const state = {
         messages: [
             {id: 1, message: "Hello"},
             {id: 2, message: "How are you?"},
-            {id: 3, message: "How are your it-kanasutra?"}
+            {id: 3, message: "How are your courses?"}
         ]
     },
     sidebar: {
@@ -27,6 +27,16 @@ const state = {
             {id: 3, name: "Olya", avatar: "https://img.freepik.com/free-photo/lifestyle-beauty-fashion-people-emotions-concept-young-asian-female-office-manager-ceo-with-pleased-expression-standing-white-background-smiling-with-arms-crossed-chest_1258-59329.jpg"}
         ]
     }
+}
+
+export const addPost = (postMessage) => {
+    let lastElemId = state.profilePage.posts[state.profilePage.posts.length - 1].id;
+    const newPost = {
+        id: lastElemId + 1,
+        message: postMessage,
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost)
 }
 
 export default state;
