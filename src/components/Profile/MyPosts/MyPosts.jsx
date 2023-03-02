@@ -8,15 +8,22 @@ const MyPosts = (props) => {
     const postsElements = props.posts.map(p => <Post message={p.message} likesCount= {m.likesCount}/>); // з кожним елементом масиву створили компоненту
     
     const newPostElement = React.createRef();
+
     const addPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text)
+        newPostElement.current.value = "";
+    };
+
+    const onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text)
     }
     
     return (
         <div className={m.postsBlock}>
             <div className={m.writePost}>
-                <textarea ref={ newPostElement } name="" id="" cols="30" rows="3"></textarea>
+                <textarea onChange={ onPostChange } ref={ newPostElement } value={ props.newPostText}></textarea>
                 <div>
                     <button onClick={ addPost }>Add Post</button>
                     <button>Remove Post</button>
