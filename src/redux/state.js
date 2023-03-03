@@ -21,7 +21,8 @@ const state = {
             {id: 1, message: "Hello"},
             {id: 2, message: "How are you?"},
             {id: 3, message: "How are your courses?"}
-        ]
+        ],
+        newMessageText: "message"
     },
     sidebar: {
         popularFriends: [
@@ -32,19 +33,36 @@ const state = {
     }
 }
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
     let lastElemId = state.profilePage.posts[state.profilePage.posts.length - 1].id;
     const newPost = {
         id: lastElemId + 1,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     };
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = "";
     rerenderEntireTree(state)
 }
 
 export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
+export const addMessage = () => {
+    let lastElemId = state.dialogsPage.messages[state.dialogsPage.messages.length - 1].id;
+    const newMessage = {
+        id: lastElemId + 1,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messages.push(newMessage)
+    state.dialogsPage.newMessageText = "";
+    rerenderEntireTree(state)
+}
+
+export const updateMessages = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
     rerenderEntireTree(state)
 }
 

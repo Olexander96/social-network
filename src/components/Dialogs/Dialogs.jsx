@@ -4,14 +4,18 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message"
 
 const Dialogs = (props) => {
-    const dialogsElements = props.state.dialogs.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar}/>); // створюємо масив тегів
-    const messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
+    const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar}/>); // створюємо масив тегів
+    const messagesElements = props.dialogsPage.messages.map(m => <Message message={m.message}/>);
 
     const newMessage = React.createRef()//звязуємо з textarea
+
     const addMessage = () => {
+        props.addMessage()
+    }
+
+    const updateMessages = () => {
         let text = newMessage.current.value;
-        let textObj = {id: 10, message: text}
-        props.state.messages = props.state.messages.push(textObj) // працює не коректно
+        props.updateMessages(text)
     }
 
     return (
@@ -21,13 +25,12 @@ const Dialogs = (props) => {
             </div>
             <div className={d.messagesItems}>
                 { messagesElements }
-                <textarea ref={ newMessage } name="" id="" cols="40" rows="3"></textarea>
+                <textarea onChange={ updateMessages } ref={ newMessage } value={ props.dialogsPage.newMessageText } cols="40" rows="3"></textarea>
                 <div>
                     <button onClick={ addMessage }>Send Message</button>
                 </div>
 
             </div>
-            
         </div>
     )
 }
