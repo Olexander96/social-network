@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => { //пишемо пусту функцію, для того щоб в ф-ції subscribe присвоїти rerenderEntireTree = observer
+    console.log("State changed")
+}
 
 const state = {
     profilePage: {
@@ -64,6 +66,10 @@ export const addMessage = () => {
 export const updateMessages = (newMessage) => {
     state.dialogsPage.newMessageText = newMessage;
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer) => { // це функція яка я вкості параметру приймає rerenderEntireTree, але вона визивається в index js бо цей параметр там
+   rerenderEntireTree = observer 
 }
 
 export default state;
