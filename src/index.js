@@ -4,22 +4,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state';
-import { addPost, updateNewPostText, addMessage, updateMessages } from './redux/state';
-import { subscribe } from './redux/state';
+import store from './redux/state';
 
 
 const rerenderEntireTree = (state) => {
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    
     root.render(
-        <App state={ state } 
-             addPost={ addPost }
-             updateNewPostText = { updateNewPostText }
-             addMessage = { addMessage }
-             updateMessages = { updateMessages } />
+        <App state={ store.getState() } 
+             addPost={ store.addPost.bind(store) }
+             updateNewPostText = { store.updateNewPostText.bind(store) }
+             addMessage = { store.addMessage.bind(store) }
+             updateMessages = { store.updateMessages.bind(store) } />
     );
 }
-rerenderEntireTree(state);
-subscribe(rerenderEntireTree)
+rerenderEntireTree( store.getState());
+store.subscribe( rerenderEntireTree ) 
 reportWebVitals();
