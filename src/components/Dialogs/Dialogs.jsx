@@ -10,12 +10,14 @@ const Dialogs = (props) => {
     const newMessage = React.createRef()//звязуємо з textarea
 
     const addMessage = () => {
-        props.addMessage()
+        //props.addMessage()
+        props.dispatch( {type: "ADD-MESSAGE"} )
     }
 
     const updateMessages = () => {
         let text = newMessage.current.value;
-        props.updateMessages(text)
+        //props.updateMessages(text)
+        props.dispatch( {type: "UPDATE-MESSAGES", newMessage: text} )
     }
 
     return (
@@ -29,7 +31,6 @@ const Dialogs = (props) => {
                 <div>
                     <button onClick={ addMessage }>Send Message</button>
                 </div>
-
             </div>
         </div>
     )

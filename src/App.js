@@ -18,14 +18,10 @@ function App (props) {
                     <Routes>
                         <Route path="/profile/*" 
                                element={ <Profile profilePage={ props.state.profilePage } 
-                               addPost={ props.addPost }
-                               updateNewPostText = {props.updateNewPostText}/> }
-                                />
+                               dispatch={ props.dispatch } />} />
                         <Route path="/dialogs/*" 
                                element={<Dialogs dialogsPage={ props.state.dialogsPage }
-                               addMessage={ props.addMessage }
-                               updateMessages = { props.updateMessages} />}
-                               />
+                               dispatch={ props.dispatch } />} />
                     </Routes>
                 </div>
             </div>

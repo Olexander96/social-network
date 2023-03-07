@@ -5,7 +5,7 @@ const store = {
                 {id: 1, message: "Hi, how are you?", likesCount: 10},
                 {id: 2, message: "It is my first post", likesCount: 15}
             ],
-            newPostText: "Hello Sanya"
+            newPostText: "new post"
         },
         dialogsPage: {
             dialogs: [
@@ -31,50 +31,74 @@ const store = {
             ]
         }
     },
-
-    getState() {
-        return this._state;
-    },
-    
     _callSubscriber() { //пишемо пусту функцію, для того щоб в ф-ції subscribe присвоїти rerenderEntireTree = observer
         console.log("State changed")
     },
 
-    addPost() {
-        let lastElemId = this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id;
-        let newPost = {
-            id: lastElemId + 1,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = "";
-        this._callSubscriber(this._state)
+    getState() {
+        return this._state;
     },
-
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._callSubscriber(this._state)
-    },
-
-    addMessage() {
-        let lastElemId = this._state.dialogsPage.messages[this._state.dialogsPage.messages.length - 1].id;
-        let newMessage = {
-            id: lastElemId + 1,
-            message: this._state.dialogsPage.newMessageText,
-        };
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = "";
-        this._callSubscriber(this._state)
-    },
-
-    updateMessages (newMessage) {
-        this._state.dialogsPage.newMessageText = newMessage;
-        this._callSubscriber(this._state)
-    },
-
     subscribe (observer) { // це функція яка я вкості параметру приймає rerenderEntireTree, але вона визивається в index js бо цей параметр там
-    this._callSubscriber = observer 
+        this._callSubscriber = observer 
+    },
+    
+    // addPost() {
+    //     let lastElemId = this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id;
+    //     let newPost = {
+    //         id: lastElemId + 1,
+    //         message: this._state.profilePage.newPostText,
+    //         likesCount: 0
+    //     };
+    //     this._state.profilePage.posts.push(newPost)
+    //     this._state.profilePage.newPostText = "";
+    //     this._callSubscriber(this._state)
+    // },
+    // updateNewPostText(newText) {
+    //     this._state.profilePage.newPostText = newText;
+    //     this._callSubscriber(this._state)
+    // },
+    // addMessage() {
+    //     let lastElemId = this._state.dialogsPage.messages[this._state.dialogsPage.messages.length - 1].id;
+    //     let newMessage = {
+    //         id: lastElemId + 1,
+    //         message: this._state.dialogsPage.newMessageText,
+    //     };
+    //     this._state.dialogsPage.messages.push(newMessage)
+    //     this._state.dialogsPage.newMessageText = "";
+    //     this._callSubscriber(this._state)
+    // },
+    // updateMessages (newMessage) {
+    //     this._state.dialogsPage.newMessageText = newMessage;
+    //     this._callSubscriber(this._state)
+    // },
+
+    dispatch(action) {
+        if (action.type === "ADD-POST") {
+            let lastElemId = this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id;
+            let newPost = {
+                id: lastElemId + 1,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state)
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state)
+        } else if (action.type === "ADD-MESSAGE") {
+            let lastElemId = this._state.dialogsPage.messages[this._state.dialogsPage.messages.length - 1].id;
+            let newMessage = {
+                id: lastElemId + 1,
+                message: this._state.dialogsPage.newMessageText,
+            };
+            this._state.dialogsPage.messages.push(newMessage)
+            this._state.dialogsPage.newMessageText = "";
+            this._callSubscriber(this._state)
+        } else if (action.type === "UPDATE-MESSAGES") {
+            this._state.dialogsPage.newMessageText = action.newMessage;
+            this._callSubscriber(this._state)
+        }
     }
 
 };
