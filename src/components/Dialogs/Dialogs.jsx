@@ -1,7 +1,9 @@
 import React from "react";
 import d from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message"
+import Message from "./Message/Message";
+import {addMessageActionCreator, updateMessagesActionCreator} from '../../redux/state';
+
 
 const Dialogs = (props) => {
     const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar}/>); // створюємо масив тегів
@@ -11,13 +13,14 @@ const Dialogs = (props) => {
 
     const addMessage = () => {
         //props.addMessage()
-        props.dispatch( {type: "ADD-MESSAGE"} )
+        props.dispatch( addMessageActionCreator() )
     }
 
     const updateMessages = () => {
         let text = newMessage.current.value;
         //props.updateMessages(text)
-        props.dispatch( {type: "UPDATE-MESSAGES", newMessage: text} )
+        let action = updateMessagesActionCreator(text)
+        props.dispatch( action )
     }
 
     return (
