@@ -1,7 +1,7 @@
 import React from 'react';
 import m from './MyPosts.module.css';
 import Post from './Post/Post';
-import { addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/state';
+import { addPostCreator, updateNewPostTextCreator} from '../../../redux/profile-reducer';
 
 
 const MyPosts = (props) => {
@@ -10,12 +10,12 @@ const MyPosts = (props) => {
     const newPostElement = React.createRef();
 
     const addPost = () => {
-        props.dispatch( addPostActionCreator() )
+        props.dispatch( addPostCreator() )
     };
 
-    const onPostChange = () => {
-        let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text);
+    const onPostChange = (event) => {
+        let text = event.target.value; // взяли текст з textarea
+        let action = updateNewPostTextCreator(text);
         props.dispatch( action )
     };
     
