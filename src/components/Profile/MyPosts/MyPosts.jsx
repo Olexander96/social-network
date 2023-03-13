@@ -1,30 +1,25 @@
 import React from 'react';
 import m from './MyPosts.module.css';
 import Post from './Post/Post';
-import { addPostCreator, updateNewPostTextCreator} from '../../../redux/profile-reducer';
-
 
 const MyPosts = (props) => {
-    const postsElements = props.posts.map(p => <Post message={p.message} likesCount= {m.likesCount}/>); // з кожним елементом масиву створили компоненту
-    
-    const newPostElement = React.createRef();
+    const postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount= {m.likesCount}/>); // з кожним елементом масиву створили компоненту
 
-    const addPost = () => {
-        props.dispatch( addPostCreator() )
+    const onAddPost = () => {
+        props.addPost()
     };
 
     const onPostChange = (event) => {
         let text = event.target.value; // взяли текст з textarea
-        let action = updateNewPostTextCreator(text);
-        props.dispatch( action )
+        props.updateNewPostText( text )
     };
     
     return (
         <div className={m.postsBlock}>
             <div className={m.writePost}>
-                <textarea onChange={ onPostChange } ref={ newPostElement } value={ props.newPostText }></textarea>
+                <textarea onChange={ onPostChange } value={ props.newPostText }></textarea>
                 <div>
-                    <button onClick={ addPost }>Add Post</button>
+                    <button onClick={ onAddPost }>Add Post</button>
                     <button>Remove Post</button>
                 </div>
             </div>

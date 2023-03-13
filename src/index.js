@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/redux-store';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 const rerenderEntireTree = (state) => {
-    const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
-        <App state={ state } dispatch={ store.dispatch.bind(store) }/>
+        <App state={ state } store = { store } />
     );
 }
 rerenderEntireTree( store.getState() );
