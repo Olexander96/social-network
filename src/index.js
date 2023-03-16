@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/redux-store';
-import StoreContext from './StoreContext';
+//import StoreContext from './StoreContext';
+import { Provider } from 'react-redux';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const rerenderEntireTree = (state) => {
     root.render(
-        <StoreContext.Provider value={store}>
+        <Provider store={ store }>
             <App/>
-        </StoreContext.Provider>
+        </Provider>
     );
 }
 
