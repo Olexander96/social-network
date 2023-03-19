@@ -3,29 +3,6 @@ import { addPostCreator, updateNewPostTextCreator} from '../../../redux/profile-
 import {connect} from 'react-redux';
 
 
-// const MyPostsContainer = (props) => {
-    
-//     return (
-//         <StoreContext.Consumer> 
-//             {value => {
-//                 const addPost = () => {
-//                     value.dispatch( addPostCreator() )
-//                 };
-            
-//                 const onPostChange = (text) => {
-//                     let action = updateNewPostTextCreator(text);
-//                     value.dispatch( action )
-//                 };
-                
-//                 return <MyPosts updateNewPostText = { onPostChange } 
-//                                 addPost = { addPost } 
-//                                 profilePage= { value.getState().profilePage }/>
-//             }
-//         }
-//     </StoreContext.Consumer>
-//     )
-// }
-
 const mapStateToProps = (state) => {
     return {
         profilePage: state.profilePage
@@ -37,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
         addPost: () => {
             dispatch( addPostCreator() )
         },
-        onPostChange: (text) => {
+        updateNewPostText: (text) => {
             let action = updateNewPostTextCreator(text);
             dispatch( action )
         }

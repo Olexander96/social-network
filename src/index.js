@@ -9,18 +9,10 @@ import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const rerenderEntireTree = (state) => {
     root.render(
         <Provider store={ store }>
             <App/>
         </Provider>
     );
-}
-
-rerenderEntireTree( store.getState() );
-store.subscribe( () => {
-    let state = store.getState();
-    rerenderEntireTree( state );
-}) 
+    
 reportWebVitals();

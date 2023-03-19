@@ -3,7 +3,7 @@ import m from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-    const postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount= {m.likesCount}/>); // з кожним елементом масиву створили компоненту
+    const postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount= {p.likesCount}/>); // з кожним елементом масиву створили компоненту
 
     const onAddPost = () => {
         props.addPost()
@@ -17,7 +17,7 @@ const MyPosts = (props) => {
     return (
         <div className={m.postsBlock}>
             <div className={m.writePost}>
-                <textarea onChange={ onPostChange } value={ props.newPostText }></textarea>
+                <textarea onChange={ onPostChange } value={ props.profilePage.newPostText }></textarea>
                 <div>
                     <button onClick={ onAddPost }>Add Post</button>
                     <button>Remove Post</button>

@@ -2,29 +2,6 @@ import {sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dial
 import Dialogs from "./Dialogs";
 import {connect} from 'react-redux';
 
-
-// const DialogsContainer = (props) => {
-    
-//     return (
-//         <StoreContext.Consumer> 
-//             {value => {
-//                     const onSendMessageClick = () => {
-//                         value.dispatch( sendMessageCreator() )
-//                     }
-                
-//                     const onNewMessageChange = (body) => {
-//                         let action = updateNewMessageBodyCreator( body )
-//                         value.dispatch( action )
-//                     }
-//                     return <Dialogs dialogsPage = { value.getState().dialogsPage } 
-//                                     updateNewMessageBody = { onNewMessageChange }
-//                                     sendMessage = { onSendMessageClick } />
-//                 }
-//             }
-//         </StoreContext.Consumer>  
-//         )
-// }
-
 const mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage
@@ -33,10 +10,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSendMessageClick: () => {
+        sendMessage: () => {
             dispatch( sendMessageCreator() )
         },
-        onNewMessageChange: (body) => {
+        updateNewMessageBody: (body) => {
             let action = updateNewMessageBodyCreator( body )
             dispatch( action )
         }
