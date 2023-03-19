@@ -22,14 +22,14 @@ const dialogsReducer = (state = initialState, action) => {
     switch(action.type) {
         case SEND_MESSAGE: 
         let lastElemId = {...state}.messages[{...state}.messages.length - 1].id; //визначаємо id останнього елементу
+        const newMessage = {
+            id: lastElemId + 1, 
+            message: {...state}.newMessageBody
+        }
+        
         return {
             ...state,
-            messages: [...state.messages, //беремо всі попередні значення
-                        {
-                            id: lastElemId + 1, 
-                            message: {...state}.newMessageBody
-                        }//додаэмо в кікень
-                    ],
+            messages: [...state.messages, newMessage], //беремо всі попередні значення додаэмо нове повідомлення в кінець
             newMessageBody: ""
         }
         case UPDATE_NEW_MESSAGE_BODY: 
