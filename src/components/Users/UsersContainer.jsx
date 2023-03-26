@@ -3,7 +3,13 @@ import axios from 'axios';
 import Users from './Users';
 import styles from './UsersContainer.module.css';
 import {connect} from 'react-redux';
-import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC, toggleIsFetchingAC} from '../../redux/users-reducer'
+import { follow, 
+    unfollow, 
+    setUsers, 
+    setCurrentPage, 
+    setTotalUsersCount, 
+    toggleIsFetching 
+} from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader';
 
 class UsersContainer extends  React.Component  {
@@ -58,27 +64,36 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalUsersCount: (totalUsers) => {
-            dispatch(setTotalUsersCountAC(totalUsers))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
-    }
+// const mapDispatchToProps = (dispatch) => {//так робили раніше шоб показати що дані колбеки запускають екшн кріейтори які потім працюють в редюсері 
+//     return {
+//         follow: (userId) => {
+//             dispatch(followAC(userId))
+//         },
+//         unfollow: (userId) => {
+//             dispatch(unfollowAC(userId))
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersAC(users))
+//         },
+//         setCurrentPage: (pageNumber) => {
+//             dispatch(setCurrentPageAC(pageNumber))
+//         },
+//         setTotalUsersCount: (totalUsers) => {
+//             dispatch(setTotalUsersCountAC(totalUsers))
+//         },
+//         toggleIsFetching: (isFetching) => {
+//             dispatch(toggleIsFetchingAC(isFetching))
+//         }
+//     }
+// }
+
+const mapDispatchToProps = {
+    follow, // follow: (userId) => {dispatch(followAC(userId))}, //те саме бо так працює connect()
+    unfollow, 
+    setUsers, 
+    setCurrentPage, 
+    setTotalUsersCount, 
+    toggleIsFetching
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
