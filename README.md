@@ -7,7 +7,7 @@ ___
 #### :link: Live Demo: 
 [Social Media](https://olexander96.github.io/social-media/)
 
-[Courses](https://www.youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8)
+[Courses - React js](https://www.youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8)
 ___
 
 #### :rocket: Technologies Used

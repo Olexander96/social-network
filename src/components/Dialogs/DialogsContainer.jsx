@@ -14,8 +14,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch( sendMessageCreator() )
         },
         updateNewMessageBody: (body) => {
-            let action = updateNewMessageBodyCreator( body )
-            dispatch( action )
+            dispatch( updateNewMessageBodyCreator( body ) )
         }
     }
 }
