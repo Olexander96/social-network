@@ -9,11 +9,11 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.params.userId;
-        if (!userId) {
+        if (userId === null) {
             userId = 2;
         }
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile`+ userId)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+ userId)
             .then(response => {
                 this.props.setUserProfile(response.data);
             })
@@ -27,7 +27,7 @@ class ProfileContainer extends React.Component {
 }
 
 
-function withRouter(Component) {//п
+function withRouter(Component) {//для запису параметрыв з URL
     function ComponentWithRouterProp(props) {
 
         let params = useParams();
