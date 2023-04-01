@@ -10,7 +10,7 @@ class HeaderContainer extends React.Component {
         axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {
             withCredentials: true,
             headers: {
-                "API_KEY": "c17569bc-d7ea-4eb5-8253-5b039"
+                "API-KEY": "c17569bc-d7ea-4eb5-8253-5b039"
             }
         })
             .then(response => {
