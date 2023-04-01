@@ -1,4 +1,4 @@
-## :pushpin: DiPlex
+## :pushpin: Social Media
 #### :memo: Description: 
 
 The personal social media project in progress 
@@ -16,7 +16,7 @@ ___
 * Redux
 * JavaScript 
 * CSS
-* AJAX  
+* Axios
 ___
 
 #### :envelope: Contacts
