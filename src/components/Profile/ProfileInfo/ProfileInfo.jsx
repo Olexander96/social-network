@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import pi from './ProfileInfo.module.css';
+import userPhoto from '../../../assets/images/user.jpg';
 
 
 const ProfileInfo = (props) => {
@@ -14,7 +15,10 @@ const ProfileInfo = (props) => {
                     <img src='https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg' alt='content-bg'/>
                 </div>
                 <div className={pi.descriptionBlock}>
-                    <img src = { props.profile.photos.large} alt='user-avatar'/>
+                    { props.profile.photos.large != null 
+                        ? <img src = { props.profile.photos.large } alt='user-avatar'/>
+                        : <img src = { userPhoto } alt='user-avatar'/>
+                    }
                     <div>
                         <span>{ props.profile.fullName }</span>
                     </div>
