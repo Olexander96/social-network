@@ -37,6 +37,7 @@ const Users = (props) => {
 
                                             axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${ user.id }`, {//відправляємо запит про відписку
                                                 withCredentials: true, //ми авторизовані
+                                                mode: 'no-cors',
                                                 headers: {
                                                     "API-KEY": "c17569bc-d7ea-4eb5-8253-5b039"
                                                 }
@@ -53,6 +54,7 @@ const Users = (props) => {
 
                                             axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${ user.id }`, {}, {
                                                 withCredentials: true, //ми авторизовані
+                                                mode: 'no-cors',
                                                 headers: {
                                                     "API-KEY": "c17569bc-d7ea-4eb5-8253-5b039"
                                                 }
