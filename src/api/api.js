@@ -4,18 +4,25 @@ const usersInstance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true, //ми авторизовані
     headers: {
-        "API-KEY": "c17569bc-d7ea-4eb5-8253-5b039"
+        "API-KEY": "c17569bc-d7ea-4eb5-8253-5b039",
+        "Access-Control-Allow-Origin": "https://olexander96.github.io/"
     }
                                                 
 });
 
 const profileInstance = axios.create({
-    baseURL: "https://social-network.samuraijs.com/api/1.0/",                        
+    baseURL: "https://social-network.samuraijs.com/api/1.0/", 
+    headers: {
+        "Access-Control-Allow-Origin": "https://olexander96.github.io/"
+    }                       
 });
 
 const authInstance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
-    withCredentials: true                                           
+    withCredentials: true,
+    headers: {
+        "Access-Control-Allow-Origin": "https://olexander96.github.io/"
+    }                                         
 });
 
 export const usersAPI = {
