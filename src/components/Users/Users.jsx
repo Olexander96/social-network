@@ -33,24 +33,26 @@ const Users = (props) => {
                                 
                                 {
                                     user.followed 
-                                    ? <button onClick={() => {
+                                    ? <button disabled={ props.followingInProgress.some( id => id === user.id) } onClick={() => {
 
-                                            
+                                            props.toggleIsFollowingProgress(true, user.id)
                                             usersAPI.unfollowUser(user.id).then(data => {
                                                 if (data.resultCode === 0) { //якщо запит успішний то міняємо в стейті followed: false відповідному юсеру
                                                     props.unfollow(user.id)
                                                 }
+                                                props.toggleIsFollowingProgress(false, user.id)
                                             })
 
                                         }
                                     }>Unfollow</button> 
-                                    : <button onClick={() => {
+                                    : <button disabled={ props.followingInProgress.some( id => id === user.id) } onClick={() => {
 
-                                            
+                                        props.toggleIsFollowingProgress(true, user.id)
                                             usersAPI.followUser(user.id).then(data => {
                                                 if (data.resultCode === 0) { //навпаки
                                                     props.follow(user.id)
                                                 }
+                                                props.toggleIsFollowingProgress(false, user.id)
                                             })
                                         }
                                     }>Follow</button> 
