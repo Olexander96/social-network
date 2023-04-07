@@ -1,3 +1,5 @@
+import { usersAPI } from '../api/api';
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
@@ -77,5 +79,44 @@ export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
 export const setTotalUsersCount = (totalUsers) => ({type: SET_TOTAL_USERS_COUNT, totalUsers});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleIsFollowingProgress = (followingInProgress, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, followingInProgress, userId});
+
+export const getUsers = (currentPage, pageSize) => { // це кріейтор санки
+    return (dispatch) => {  // це санка
+        dispatch(toggleIsFetching(true));
+
+        usersAPI.getUsers(currentPage, pageSize).then(data => { //axios 
+            dispatch(toggleIsFetching(false));
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        })
+    }
+}
+
+export const unfollowUser = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleIsFollowingProgress(true, userId));
+
+        usersAPI.unfollowUser(userId).then(data => {
+            if (data.resultCode === 0) { //якщо запит успішний то міняємо в стейті followed: false відповідному юсеру
+                dispatch(unfollow(userId));
+            }
+            dispatch(toggleIsFollowingProgress(false, userId))
+        })
+    }
+}
+
+export const followUser = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleIsFollowingProgress(true, userId));
+
+        usersAPI.followUser(userId).then(data => {
+            if (data.resultCode === 0) { //навпаки
+                dispatch(follow(userId))
+            }
+            dispatch(toggleIsFollowingProgress(false, userId))
+        })
+    }
+}
+
 
 export default usersReducer;
