@@ -8,15 +8,14 @@ import Preloader from '../common/Preloader/Preloader';
 class UsersContainer extends  React.Component  {
 
     componentDidMount() {
-            // this.props.toggleIsFetching(true);
+        // this.props.toggleIsFetching(true);
 
             // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => { //axios 
             //     this.props.toggleIsFetching(false);
             //     this.props.setUsers(data.items);
             //     this.props.setTotalUsersCount(data.totalCount);
-            // })
-
-            this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        // })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
         
     }
 

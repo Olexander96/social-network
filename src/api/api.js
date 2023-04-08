@@ -40,17 +40,13 @@ export const usersAPI = {
 
 export const profileAPI = {
     getProfile (userId) {
-        return profileInstance
-                    .get(`profile/${ userId }`)
-                    .then(response => response.data)
+        return profileInstance.get(`profile/${ userId }`).then(response => response.data)
     }
 };
 
 export const authAPI = {
     authMe () {
-        return authInstance
-                    .get(`auth/me`)
-                    .then(response => response.data)
+        return authInstance.get(`auth/me`).then(response => response.data)
     }
 };
 

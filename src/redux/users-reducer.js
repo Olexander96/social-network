@@ -82,6 +82,7 @@ export const toggleIsFollowingProgress = (followingInProgress, userId) => ({type
 
 export const getUsers = (currentPage, pageSize) => { // це кріейтор санки
     return (dispatch) => {  // це санка
+        dispatch(setCurrentPage(currentPage))
         dispatch(toggleIsFetching(true));
 
         usersAPI.getUsers(currentPage, pageSize).then(data => { //axios 
