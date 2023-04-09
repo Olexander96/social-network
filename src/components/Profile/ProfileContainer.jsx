@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { getUserProfile } from '../../redux/profile-reducer';
 import { useParams, Navigate } from "react-router-dom";
 import wiAuthRedirect from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
 
@@ -35,15 +36,15 @@ function withRouter(Component) {//для запису параметрыв з UR
     return ComponentWithRouterProp;
 }
 
-const AuthRedirectComponent = wiAuthRedirect(ProfileContainer);// HOC якщо не залогынений то редырект на вкладку login
-
-
 const mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
     }
 }
 
-const withURLDataContainerComponent = withRouter(AuthRedirectComponent);
 
-export default connect(mapStateToProps, { getUserProfile })(withURLDataContainerComponent);
+export default compose(
+    connect(mapStateToProps, { getUserProfile }),
+    withRouter,
+    wiAuthRedirect // HOC якщо не залогынений то редырект на вкладку login
+)(ProfileContainer);

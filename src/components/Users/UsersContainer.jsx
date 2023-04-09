@@ -60,37 +60,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {//так робили раніше шоб показати що дані колбеки запускають екшн кріейтори які потім працюють в редюсері 
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUsersCount: (totalUsers) => {
-//             dispatch(setTotalUsersCountAC(totalUsers))
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//     }
-// }
-
-// const mapDispatchToProps = {
-//     follow, // follow: (userId) => {dispatch(followAC(userId))}, //те саме бо так працює connect()
-//     unfollow, 
-//     setUsers, 
-//     setCurrentPage, 
-//     setTotalUsersCount, 
-//     toggleIsFetching,
-//     toggleIsFollowingProgress
-// }
-
 export default connect(mapStateToProps, {setCurrentPage, getUsers, unfollowUser, followUser})(UsersContainer);

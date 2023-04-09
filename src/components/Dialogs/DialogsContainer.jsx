@@ -2,6 +2,7 @@ import {sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dial
 import Dialogs from "./Dialogs";
 import {connect} from 'react-redux';
 import wiAuthRedirect from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -21,8 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const AuthRedirectComponent = wiAuthRedirect(Dialogs)// HOC якщо не залогынений то редырект на вкладку login
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps), //прокидує дані із стейта та колбеки
+    wiAuthRedirect // HOC якщо не залогынений то редырект на вкладку login
+)(Dialogs);
