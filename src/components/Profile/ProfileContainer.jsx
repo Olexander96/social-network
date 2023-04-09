@@ -2,7 +2,7 @@ import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
 import { getUserProfile } from '../../redux/profile-reducer';
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import wiAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
@@ -18,8 +18,6 @@ class ProfileContainer extends React.Component {
     }
 
     render () {
-        if (!this.props.isAuth) return <Navigate to="/login"/>//якщо не залогынений то редырект на вкладку login
-
         return (
             <Profile {...this.props} profile={this.props.profile}/>
         )

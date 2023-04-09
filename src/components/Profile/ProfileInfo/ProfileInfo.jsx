@@ -2,6 +2,7 @@ import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import pi from './ProfileInfo.module.css';
 import userPhoto from '../../../assets/images/user.jpg';
+import ProfileStatus from './ProfileStatus';
 
 
 const ProfileInfo = (props) => {
@@ -11,9 +12,9 @@ const ProfileInfo = (props) => {
     
     return (
             <div>
-                <div className={pi.imageBlock}>
+                {/* <div className={pi.imageBlock}>
                     <img src='https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg' alt='content-bg'/>
-                </div>
+                </div> */}
                 <div className={pi.descriptionBlock}>
                     { props.profile.photos.large != null 
                         ? <img src = { props.profile.photos.large } alt='user-avatar'/>
@@ -22,6 +23,7 @@ const ProfileInfo = (props) => {
                     <div>
                         <span>{ props.profile.fullName }</span>
                     </div>
+                    <ProfileStatus status="Hello my friends"/>
                     <div>
                         <span>{ props.profile.aboutMe }</span>
                     </div>
