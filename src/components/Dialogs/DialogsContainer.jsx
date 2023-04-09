@@ -1,6 +1,7 @@
 import {sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
 import Dialogs from "./Dialogs";
 import {connect} from 'react-redux';
+import wiAuthRedirect from '../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
     return {
@@ -20,6 +21,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const AuthRedirectComponent = wiAuthRedirect(Dialogs)// HOC якщо не залогынений то редырект на вкладку login
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
 
 export default DialogsContainer;

@@ -2,7 +2,6 @@ import React from "react";
 import d from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import { Navigate } from "react-router-dom";
 
 const Dialogs = (props) => {
     const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar} key={d.id}/>); // створюємо масив тегів
@@ -16,8 +15,6 @@ const Dialogs = (props) => {
         let body = event.target.value;
         props.updateNewMessageBody( body )
     }
-
-    if (!props.isAuth) return <Navigate to="/login/"/> //як Redirect
 
     return (
         <div className={d.dialogs}>

@@ -1,4 +1,4 @@
-## :pushpin: Social Media
+## :pushpin: Social Network
 #### :memo: Description: 
 
 The personal social media project in progress 
