@@ -28,6 +28,14 @@ class ProfileStatus extends React.Component {
         });
     }
 
+    componentDidUpdate (prevProps, prevState) {
+        if (prevProps.status !== this.props.status) { //ми порівнюємо початковий статус з тим який ввели, якщо різні то перезаписуємо його глобально і перемальвуємо компоненту
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
     render () {
         return (
             <div>
