@@ -10,7 +10,8 @@ const usersInstance = axios.create({
 });
 
 const profileInstance = axios.create({
-    baseURL: "https://social-network.samuraijs.com/api/1.0/",                       
+    baseURL: "https://social-network.samuraijs.com/api/1.0/",
+    withCredentials: true,                      
 });
 
 const authInstance = axios.create({
@@ -41,6 +42,12 @@ export const usersAPI = {
 export const profileAPI = {
     getProfile (userId) {
         return profileInstance.get(`profile/${ userId }`).then(response => response.data)
+    },
+    getStatus (userId) {
+        return profileInstance.get(`profile/status/${ userId }`)
+    },
+    updateStatus (status) {
+        return profileInstance.put(`profile/status/`, { status: status })
     }
 };
 

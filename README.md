@@ -1,11 +1,11 @@
 ## :pushpin: Social Network
 #### :memo: Description: 
 
-The personal social media project in progress 
+The personal social network project in progress 
 ___
 
 #### :link: Live Demo: 
-[Social Media](https://olexander96.github.io/social-media/)
+[Social Network](https://olexander96.github.io/social-media/)
 
 [Courses - React js](https://www.youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8)
 ___

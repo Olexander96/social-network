@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
-import { getUserProfile } from '../../redux/profile-reducer';
+import { getUserProfile, getUserStatus, updateUserStatus } from '../../redux/profile-reducer';
 import { useParams } from "react-router-dom";
 import wiAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
@@ -15,11 +15,12 @@ class ProfileContainer extends React.Component {
         }
 
         this.props.getUserProfile(userId) //кріейтор санки
+        this.props.getUserStatus(userId)
     }
 
     render () {
         return (
-            <Profile {...this.props} profile={this.props.profile}/>
+            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateUserStatus = { this.props.updateUserStatus }/>
         )
     }
 }
@@ -37,12 +38,13 @@ function withRouter(Component) {//для запису параметрыв з UR
 const mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
+        status: state.profilePage.status
     }
 }
 
 
 export default compose(
-    connect(mapStateToProps, { getUserProfile }),
+    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus }),
     withRouter,
     wiAuthRedirect // HOC якщо не залогынений то редырект на вкладку login
 )(ProfileContainer);
