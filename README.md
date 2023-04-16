@@ -1,11 +1,11 @@
 ## :pushpin: Social Network
 #### :memo: Description: 
 
-The personal social network project in progress 
+The personal social network 
 ___
 
 #### :link: Live Demo: 
-[Social Network](https://olexander96.github.io/social-media/)
+[Social Network](https://olexander96.github.io/social-network/)
 
 [Courses - React js](https://www.youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8)
 ___
@@ -16,7 +16,9 @@ ___
 * Redux
 * JavaScript 
 * CSS
-* Axios
+* AJAX (Axios)
+* Redux Thunk
+* Redux Form
 ___
 
 #### :envelope: Contacts

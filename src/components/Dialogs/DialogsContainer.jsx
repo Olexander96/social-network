@@ -1,4 +1,4 @@
-import {sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
+import { sendMessageCreator } from '../../redux/dialogs-reducer';
 import Dialogs from "./Dialogs";
 import {connect} from 'react-redux';
 import wiAuthRedirect from '../hoc/withAuthRedirect';
@@ -13,12 +13,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendMessage: () => {
-            dispatch( sendMessageCreator() )
-        },
-        updateNewMessageBody: (body) => {
-            dispatch( updateNewMessageBodyCreator( body ) )
+        sendMessage: (newMessage) => {
+            dispatch( sendMessageCreator(newMessage) )
         }
+        // updateNewMessageBody: (body) => { //використовували раніше, щоб оновлювати стейт коли друкуємо меседж
+        //     dispatch( updateNewMessageBodyCreator( body ) )
+        // }
     }
 }
 
