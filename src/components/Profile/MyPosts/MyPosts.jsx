@@ -2,6 +2,10 @@ import React from 'react';
 import m from './MyPosts.module.css';
 import Post from './Post/Post';
 import { Field, reduxForm } from 'redux-form';
+import { maxLength, required } from '../../../utils/validators/validators';
+import { Textarea } from '../../common/FormControls/FormControls';
+
+const currentMaxLength  = maxLength(15); //бо на пряму не працює
 
 const MyPosts = (props) => {
     const postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount= {p.likesCount}/>); // з кожним елементом масиву створили компоненту
@@ -28,7 +32,11 @@ const MyPosts = (props) => {
 const MyNewPostForm = (props) => {
     return (
         <form onSubmit={ props.handleSubmit } className={m.writePost}>
-            <Field component={ "textarea" } name={ "newPost" }/>
+            <Field component={ Textarea } 
+                    name={ "newPost" }
+                    validate={ [required, currentMaxLength] }   //всі функції які валідують
+                    placeholder='Post message'
+            />
             <div>
                 <button>Add Post</button>
                 <button>Remove Post</button>
