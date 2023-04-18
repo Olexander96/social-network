@@ -3,6 +3,10 @@ import d from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import { Field, reduxForm } from "redux-form";
+import { Textarea } from "../common/FormControls/FormControls";
+import { maxLength, required } from "../../utils/validators/validators";
+
+const maxLength50 = maxLength(50);
 
 const Dialogs = (props) => {
     const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar} key={d.id}/>); // створюємо масив тегів
@@ -31,11 +35,16 @@ const Dialogs = (props) => {
 };
 
 
-const DialogAddMessageForm = (props) => {
+const DialogAddMessageForm = (props) => {//винести в окремий файл
+
     return (
         <form onSubmit={ props.handleSubmit }>
             <div>
-                <Field component={ "textarea" } name={ "newMessage" } />
+                <Field component={ Textarea } 
+                    name={ "newMessage" } 
+                    validate={ [ required, maxLength50 ] }
+                    placeholder="New message"
+                />
             </div>
             <div>
                 <button>Send Message</button>

@@ -1,10 +1,22 @@
 import React from "react";
+import styles from "./FormControls.module.css";
 
-export const Textarea = (props) => {
+const FormControl = ({input, meta, child, ...props}) => {
+    const hasError = meta.touched && meta.error; // якщо ми вже натиснули на пут (hasError) і спрацювала помилка одного з валадаторів(в meta буде error)
     return (
-        <div>
-            <textarea {...props} />
+        <div className={ styles.postForm + " " + ( hasError ? styles.error : "" ) }>
+            { props.children }
+            { hasError ? <span>{ meta.error }</span> : undefined}
         </div>
     )
 };
 
+export const Textarea = (props) => {
+    const {input, meta, child, ...restProps} = props;
+    return (<FormControl {...props}><textarea {...input} {...restProps}/></FormControl>)
+};
+
+export const Input = (props) => {
+    const {input, meta, child, ...restProps} = props;
+    return (<FormControl {...props}><input {...input} {...restProps}/></FormControl>)
+};
