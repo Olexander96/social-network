@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Login.module.css";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../common/FormControls/FormControls";
-import { required } from "../../utils/validators/validators";
+import { required, email } from "../../utils/validators/validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router";
@@ -17,7 +17,7 @@ const LoginForm = (props) => {
                 <Field component={ Input } 
                     placeholder={ "Email" } 
                     name = { "email" }
-                    validate={[required]}//нада доробить
+                    validate={[required, email]} // немає бути пустий та валідація регулярним виразом
                 />
             </label>
             <label className={ styles.password }>

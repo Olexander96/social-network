@@ -12,9 +12,6 @@ const ProfileInfo = (props) => {
     
     return (
             <div>
-                {/* <div className={pi.imageBlock}>
-                    <img src='https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg' alt='content-bg'/>
-                </div> */}
                 <div className={pi.descriptionBlock}>
                     { props.profile.photos.large != null 
                         ? <img src = { props.profile.photos.large } alt='user-avatar'/>
