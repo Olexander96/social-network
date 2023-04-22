@@ -9,9 +9,10 @@ import { compose } from 'redux';
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
+        debugger
         let userId = this.props.params.userId;
         if (userId == null) {
-            userId = 28600; //мій профіль
+            userId = this.props.authorizedUserId; //мій авторизований профіль профіль
         }
 
         this.props.getUserProfile(userId) //кріейтор санки
@@ -20,7 +21,11 @@ class ProfileContainer extends React.Component {
 
     render () {
         return (
-            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateUserStatus = { this.props.updateUserStatus }/>
+            <Profile {...this.props} 
+                profile={this.props.profile} 
+                status={this.props.status} 
+                updateUserStatus = { this.props.updateUserStatus }
+            />
         )
     }
 }
@@ -38,7 +43,9 @@ function withRouter(Component) {//для запису параметрыв з UR
 const mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
-        status: state.profilePage.status
+        status: state.profilePage.status,
+        authorizedUserId: state.auth.userId,
+        isAuth: state.auth.isAuth
     }
 }
 

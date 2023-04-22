@@ -1,4 +1,5 @@
-import {authAPI} from '../api/api'
+import {authAPI} from '../api/api';
+import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = "SET_USER_DATA";
 
@@ -32,10 +33,14 @@ export const getAuthUserData = () => (dispatch) => { //кріейтор санк
 };
 
 export const login = (email, password, rememberMe) => (dispatch) => { //кріейтор санки
+
     authAPI.login(email, password, rememberMe).then(data => {
         if (data.resultCode === 0) {
             dispatch(getAuthUserData()) //коли ми выдправили дані на сервер то знову проуємо залогінити себе
-        }   
+        } else {
+            const errorMessage = data.messages.length > 0 ? data.messages[0] : "Some error";
+            dispatch(stopSubmit("login", {_error: errorMessage})) // коли resultCode буде 1 (не успішно залогінились) то покаже помилку
+        }
     }) 
 };
 

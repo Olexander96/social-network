@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Login.module.css";
+import formStyles from "../common/FormControls/FormControls.module.css";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../common/FormControls/FormControls";
 import { required, email } from "../../utils/validators/validators";
@@ -34,14 +35,13 @@ const LoginForm = (props) => {
                 />
                 remember me
             </label>
+            {props.error ? <div className={ formStyles.formErrorSummary }>{ props.error }</div> : null} 
             <button>Login</button>
-        </form>
+        </form> //в пропсах прилетить error коли буде помилка валідації, тому що ми огорнули форму в reduxForm
     )
 }
 
-const LoginReduxForm = reduxForm({
-    form: "login"
-})(LoginForm)
+const LoginReduxForm = reduxForm({form: "login"})(LoginForm);
 
 const Login = (props) => {
     const onSubmit = formData => {
