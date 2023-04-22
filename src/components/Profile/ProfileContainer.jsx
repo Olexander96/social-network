@@ -2,17 +2,19 @@ import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
 import { getUserProfile, getUserStatus, updateUserStatus } from '../../redux/profile-reducer';
-import { useParams } from "react-router-dom";
 import wiAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { withRouter } from '../hoc/withRouter';
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        debugger
         let userId = this.props.params.userId;
         if (userId == null) {
             userId = this.props.authorizedUserId; //мій авторизований профіль профіль
+            if (!userId) {
+                this.props.history.push("/login") //якщо нам не прийде інформація по буде профілю то редірект на логін сторінку
+            }
         }
 
         this.props.getUserProfile(userId) //кріейтор санки
@@ -30,15 +32,6 @@ class ProfileContainer extends React.Component {
     }
 }
 
-
-function withRouter(Component) {//для запису параметрыв з URL
-    function ComponentWithRouterProp(props) {
-
-        let params = useParams();
-        return <Component {...props} params = { params }/>;
-    }
-    return ComponentWithRouterProp;
-}
 
 const mapStateToProps = (state) => {
     return {
