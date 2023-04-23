@@ -6,8 +6,6 @@ ___
 
 #### :link: Live Demo: 
 [Social Network](https://olexander96.github.io/social-network/)
-
-[Courses - React js](https://www.youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8)
 ___
 
 #### :rocket: Technologies Used
@@ -19,6 +17,7 @@ ___
 * AJAX (Axios)
 * Redux Thunk
 * Redux Form
+* Reselect
 ___
 
 #### :envelope: Contacts

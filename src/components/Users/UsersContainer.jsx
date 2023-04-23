@@ -4,7 +4,8 @@ import styles from './UsersContainer.module.css';
 import {connect} from 'react-redux';
 import { setCurrentPage, getUsers, unfollowUser, followUser } from '../../redux/users-reducer';
 import Preloader from '../common/Preloader/Preloader';
-import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersList } from '../../redux/users-selectors';
+import { getCurrentPage, getFollowingInProgress, getIsFetching, 
+    getPageSize, getTotalUsersCount, getUsersList } from '../../redux/selectors/users-selectors';
 
 class UsersContainer extends  React.Component  {
 
@@ -32,6 +33,7 @@ class UsersContainer extends  React.Component  {
     }
   
     render() {
+        // console.log('rerender USERS')
         return <div className={styles.usersPage}>
                 {this.props.isFetching ? <Preloader/> : null} 
                 <Users totalUsersCount = { this.props.totalUsersCount }
@@ -62,6 +64,7 @@ class UsersContainer extends  React.Component  {
 // }
 
 const mapStateToProps = (state) => {
+    // console.log('mapStateToProps for USERS')
     return {
         users: getUsersList(state),
         pageSize: getPageSize(state),
