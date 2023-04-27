@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import pi from './ProfileInfo.module.css';
 
 
@@ -6,12 +6,15 @@ const ProfileStatusWithHooks = (props) => {
 
         let [editMode, setEditMode] = useState(false);
         let [currentStatus, setStatus] = useState(props.status);//тобто він примає значення початкове і в результаті setStatus може його міняти
+        useEffect(() => {
+            setStatus(props.status)
+        }, [props.status])
 
-        let activateEditMode = () => {
+        const activateEditMode = () => {
             setEditMode(true)
         };
 
-        let deactivateEditMode = () => {
+        const deactivateEditMode = () => {
             setEditMode(false); //перемикає режим редагування 
             props.updateUserStatus(currentStatus) //відправляє статус для запису на сервак
         };
