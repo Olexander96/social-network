@@ -16,7 +16,7 @@ const MyPosts = (props) => {
             props.addPost(values.newPost)
         };
 
-        console.log("RENDER")
+        // console.log("RENDER")
         return (
             <div className={m.postsBlock}>
                 <MyNewPostReduxForm onSubmit={ onAddPost } />
