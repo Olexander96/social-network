@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Login.module.css";
 import formStyles from "../common/FormControls/FormControls.module.css";
-import { Field, reduxForm } from "redux-form";
-import { Input } from "../common/FormControls/FormControls";
+import { reduxForm } from "redux-form";
+import { Input, createField } from "../common/FormControls/FormControls";
 import { required, email } from "../../utils/validators/validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
@@ -15,24 +15,13 @@ const LoginForm = (props) => {
     return (
         <form className={ styles.form } onSubmit={props.handleSubmit}> 
             <label className={ styles.login }>
-                <Field component={ Input } 
-                    placeholder={ "Email" } 
-                    name = { "email" }
-                    validate={[required, email]} // немає бути пустий та валідація регулярним виразом
-                />
+                { createField(Input, "Email", "email", [required, email] ) }
             </label>
             <label className={ styles.password }>
-                <Field component={ Input } 
-                    placeholder={ "Password" } 
-                    name = { "password" }
-                    validate={[required]}
-                />
+                { createField(Input, "Password", "password", [required] ) }
             </label>
             <label className={ styles.rememberCheck }>
-                <Field component={ "input" } 
-                    type={ "checkbox" } 
-                    name = { "rememberMe" }
-                />
+                { createField("input", null, "rememberMe", [], { type:"checkbox" }) }
                 remember me
             </label>
             {props.error ? <div className={ formStyles.formErrorSummary }>{ props.error }</div> : null} 
