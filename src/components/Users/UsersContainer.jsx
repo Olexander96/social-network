@@ -10,30 +10,16 @@ import { getCurrentPage, getFollowingInProgress, getIsFetching,
 class UsersContainer extends  React.Component  {
 
     componentDidMount() {
-        // this.props.toggleIsFetching(true);
-
-            // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => { //axios 
-            //     this.props.toggleIsFetching(false);
-            //     this.props.setUsers(data.items);
-            //     this.props.setTotalUsersCount(data.totalCount);
-        // })
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
-        
+        const {currentPage, pageSize} = this.props;
+        this.props.getUsers(currentPage, pageSize);
     }
 
     onChangePage = (pageNumber) => {
-        // this.props.setCurrentPage(pageNumber);
-        // this.props.toggleIsFetching(true);
-
-        // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => { // axios (api.js)
-        //         this.props.toggleIsFetching(false);
-        //         this.props.setUsers(data.items);
-        //     })
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        const { pageSize } = this.props;
+        this.props.getUsers(pageNumber, pageSize);
     }
   
     render() {
-        // console.log('rerender USERS')
         return <div className={styles.usersPage}>
                 {this.props.isFetching ? <Preloader/> : null} 
                 <Users totalUsersCount = { this.props.totalUsersCount }
@@ -52,21 +38,9 @@ class UsersContainer extends  React.Component  {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         users: state.usersPage.users,
-//         pageSize: state.usersPage.pageSize,
-//         totalUsersCount: state.usersPage.totalUsersCount,
-//         currentPage: state.usersPage.currentPage,
-//         isFetching: state.usersPage.isFetching,
-//         followingInProgress: state.usersPage.followingInProgress
-//     }
-// }
-
 const mapStateToProps = (state) => {
-    // console.log('mapStateToProps for USERS')
     return {
-        users: getUsersList(state),
+        users: getUsersList(state), // це селектори
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
