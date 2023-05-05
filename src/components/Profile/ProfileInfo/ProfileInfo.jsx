@@ -5,18 +5,22 @@ import userPhoto from '../../../assets/images/user.jpg';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
-const ProfileInfo = ( {profile, status, updateUserStatus} ) => {
+const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto} ) => {
+
+    const sendPhotoToServer = (event) => {
+        if (event.target.files.length) {
+            savePhoto(event.target.files[0]);
+        }
+    }
+
     if (!profile) {
         return <Preloader/>
     } 
-    
     return (
             <div>
                 <div className={pi.descriptionBlock}>
-                    { profile.photos.large != null 
-                        ? <img src = { profile.photos.large } alt='user-avatar'/>
-                        : <img src = { userPhoto } alt='user-avatar'/>
-                    }
+                    <img src = { profile.photos.large || userPhoto } alt='user-avatar'/>
+                    {isOwner ? <input type='file' onChange={ sendPhotoToServer }/> : null}
                     <div>
                         <span>{ profile.fullName }</span>
                     </div>

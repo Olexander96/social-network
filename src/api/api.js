@@ -48,6 +48,15 @@ export const profileAPI = {
     },
     updateStatus (status) {
         return profileInstance.put(`profile/status/`, { status: status })
+    },
+    savePhoto (photoFile) {
+        const formData = new FormData();
+        formData.append("image", photoFile)//поміщаємо наш файл
+        return profileInstance.put(`profile/photo/`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data' //тому що інший формат
+            }
+        })
     }
 };
 

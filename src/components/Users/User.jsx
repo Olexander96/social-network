@@ -8,10 +8,7 @@ const User = ( {user, followingInProgress, unfollowUser, followUser } ) => {
             <div key={user.id}>
                 <div>
                     <NavLink to={`/profile/${ user.id}`}>
-                        <img className={styles.photoUrl} 
-                            src={user.photos.small === null ? user.photos.small = userPhoto : user.photos.small} 
-                            alt='user'
-                        />
+                        <img className={styles.photoUrl} src={user.photos.small || userPhoto} alt='user' />
                     </NavLink>
                                 
                     {

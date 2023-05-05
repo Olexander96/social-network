@@ -1,14 +1,14 @@
 import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
-import { getUserProfile, getUserStatus, updateUserStatus } from '../../redux/profile-reducer';
+import { getUserProfile, getUserStatus, updateUserStatus, savePhoto } from '../../redux/profile-reducer';
 import wiAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { withRouter } from '../hoc/withRouter';
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    refreshProfile () {
         let userId = this.props.params.userId;
         if (userId == null) {
             userId = this.props.authorizedUserId; //мій авторизований профіль профіль
@@ -19,6 +19,16 @@ class ProfileContainer extends React.Component {
 
         this.props.getUserProfile(userId) //кріейтор санки
         this.props.getUserStatus(userId)
+    };
+
+    componentDidMount() {
+        this.refreshProfile();
+    };
+
+    componentDidUpdate (prevProps, prevState) {
+        if (this.props.params.userId !== prevProps.params.userId) {
+            this.refreshProfile();
+        }
     }
 
     render () {
@@ -27,6 +37,8 @@ class ProfileContainer extends React.Component {
                 profile={this.props.profile} 
                 status={this.props.status} 
                 updateUserStatus = { this.props.updateUserStatus }
+                isOwner = {!this.props.params.userId}
+                savePhoto =  { this.props.savePhoto }
             />
         )
     }
@@ -44,7 +56,7 @@ const mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus }),
+    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
     withRouter,
     wiAuthRedirect // HOC якщо не залогынений то редырект на вкладку login
 )(ProfileContainer);

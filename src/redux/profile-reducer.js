@@ -4,6 +4,7 @@ const ADD_POST = "profile/ADD-POST";
 const SET_USER_PROFILE = "profile/SET_USER_PROFILE";
 const SET_STATUS = "profile/SET_STATUS";
 const DELETE_POST = "profile/DELETE_POST";
+const SAVE_PHOTO_SUCCESS = "profile/SAVE_PHOTO_SUCCESS";
 
 const initialState = {
     posts: [
@@ -45,6 +46,14 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 status: action.status
             }
+        case SAVE_PHOTO_SUCCESS: 
+            return {
+                ...state,
+                profile: {
+                    ...state.profile, 
+                    photos: action.photos
+                }
+            }
         default: return state 
     }
 }
@@ -53,24 +62,31 @@ export const addPostCreator = (newPost) => ({ type: ADD_POST, post: newPost });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
 export const deletePostCreator = (id) => ({ type: DELETE_POST, id: id });
+export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos: photos });
 
 export const getUserProfile = (userId) => async (dispatch) => {
         const response = await profileAPI.getProfile(userId);
-
         dispatch(setUserProfile(response));
-    }
+    };
 
 export const getUserStatus = (userId) => async (dispatch) => {
         const response = await profileAPI.getStatus(userId);
-
         dispatch(setStatus(response.data));
-    }
+    };
 export const updateUserStatus = (status) => async (dispatch) => {
         const response = await profileAPI.updateStatus(status);
-
         if (response.data.resultCode === 0) {
             dispatch(setStatus(status));
         } 
+    };
+
+export const savePhoto = (file) => async (dispatch) => {
+        const response = await profileAPI.savePhoto(file);
+        if (response.data.resultCode === 0) {
+            debugger
+           dispatch(savePhotoSuccess(response.data.data.photos));
+        } 
     }
+
 
 export default profileReducer;
