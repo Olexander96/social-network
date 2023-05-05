@@ -3,7 +3,8 @@ import './reset.css';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
-import { BrowserRouter } from "react-router-dom";
+//import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
 import {Route, Routes} from 'react-router';
 import UsersContainer from './components/Users/UsersContainer';
 import { connect } from 'react-redux';
@@ -26,7 +27,7 @@ class App extends React.Component {
             return <Preloader/>
         } 
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className="app-wrapper">
                     <HeaderContainer/>
                     <NavbarContainer />
@@ -47,7 +48,7 @@ class App extends React.Component {
                         </Routes>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         )
     }
 }
