@@ -1,10 +1,13 @@
 import { profileAPI } from '../api/api';
+import { stopSubmit } from 'redux-form';
+
 
 const ADD_POST = "profile/ADD-POST";
 const SET_USER_PROFILE = "profile/SET_USER_PROFILE";
 const SET_STATUS = "profile/SET_STATUS";
 const DELETE_POST = "profile/DELETE_POST";
 const SAVE_PHOTO_SUCCESS = "profile/SAVE_PHOTO_SUCCESS";
+const SET_EDIT_MODE_STATUS = "profile/SET_EDIT_MODE_STATUS";
 
 const initialState = {
     posts: [
@@ -13,7 +16,8 @@ const initialState = {
     ],
     newPostText: "",
     profile: null,
-    status: ""
+    status: "",
+    editModeStatus: ""
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -54,6 +58,11 @@ const profileReducer = (state = initialState, action) => {
                     photos: action.photos
                 }
             }
+        case SET_EDIT_MODE_STATUS: 
+            return {
+                ...state,
+                editModeStatus: action.statusName
+            }
         default: return state 
     }
 }
@@ -63,6 +72,7 @@ export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status });
 export const deletePostCreator = (id) => ({ type: DELETE_POST, id: id });
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos: photos });
+export const setEditModeStatus = (statusName) => ({ type: SET_EDIT_MODE_STATUS, statusName });
 
 export const getUserProfile = (userId) => async (dispatch) => {
         const response = await profileAPI.getProfile(userId);
@@ -83,9 +93,22 @@ export const updateUserStatus = (status) => async (dispatch) => {
 export const savePhoto = (file) => async (dispatch) => {
         const response = await profileAPI.savePhoto(file);
         if (response.data.resultCode === 0) {
-            debugger
            dispatch(savePhotoSuccess(response.data.data.photos));
         } 
+    };
+
+export const saveProfileFormData = (formData) => async (dispatch, getState) => {
+        const userId = getState().auth.userId; //отримали наш айді
+        const response = await profileAPI.saveProfileData(formData);
+        if (response.data.resultCode === 0) {
+            dispatch(setEditModeStatus("SUCCESS"));
+           dispatch(getUserProfile(userId)); //запросили дані з сервера після їх оновлення
+        } else {
+            dispatch(setEditModeStatus("ERROR"));
+            dispatch(stopSubmit("profile-form", {_error: response.data.messages[0] })); // щоб выдобразити error в формі, якщо не пройде валідацію
+            //return Promise.reject(response.data.messages[0])
+            //dispatch(stopSubmit("profile-form", {"contacts": {"vk": response.data.messages[0]} })) -> зробити
+        }
     }
 
 

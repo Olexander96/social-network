@@ -57,7 +57,11 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data' //тому що інший формат
             }
         })
-    }
+    },
+    saveProfileData (profileFormData) {
+        return profileInstance.put(`profile`, profileFormData) // profileFormData це цілий об'єкт який передали з форми
+    },
+    
 };
 
 export const authAPI = {

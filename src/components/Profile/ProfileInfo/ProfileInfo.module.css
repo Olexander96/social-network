@@ -12,3 +12,7 @@
 .profileStatus {
     cursor: pointer;
 }
+
+.contactItem {
+    padding-left: 20px;
+}

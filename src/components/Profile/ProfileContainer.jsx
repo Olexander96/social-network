@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
-import { getUserProfile, getUserStatus, updateUserStatus, savePhoto } from '../../redux/profile-reducer';
+import { getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfileFormData } from '../../redux/profile-reducer';
 import wiAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { withRouter } from '../hoc/withRouter';
@@ -39,6 +39,8 @@ class ProfileContainer extends React.Component {
                 updateUserStatus = { this.props.updateUserStatus }
                 isOwner = {!this.props.params.userId}
                 savePhoto =  { this.props.savePhoto }
+                saveProfileFormData = {this.props.saveProfileFormData}
+                editModeStatus = {this.props.editModeStatus}
             />
         )
     }
@@ -50,13 +52,14 @@ const mapStateToProps = (state) => {
         profile: state.profilePage.profile,
         status: state.profilePage.status,
         authorizedUserId: state.auth.userId,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        editModeStatus: state.profilePage.editModeStatus
     }
 }
 
 
 export default compose(
-    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
+    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfileFormData}),
     withRouter,
     wiAuthRedirect // HOC якщо не залогынений то редырект на вкладку login
 )(ProfileContainer);
