@@ -19,6 +19,11 @@ const authInstance = axios.create({
     withCredentials: true,                                         
 });
 
+const securityInstance = axios.create({
+    baseURL: "https://social-network.samuraijs.com/api/1.0/",
+    withCredentials: true,                                         
+});
+
 export const usersAPI = {
     getUsers (currentPage = 1, pageSize = 4) {
         return usersInstance
@@ -68,13 +73,20 @@ export const authAPI = {
     authMe () {
         return authInstance.get(`auth/me`).then(response => response.data)
     },
-    login (email, password, rememberMe) {
-        return authInstance.post(`auth/login`, { email, password, rememberMe }).then(response => response.data)
+    login (email, password, rememberMe, captcha = null) {
+        return authInstance.post(`auth/login`, { email, password, rememberMe, captcha }).then(response => response.data)
     },
     logout () {
         return authInstance.delete(`auth/login`).then(response => response.data)
     }
 };
+
+export const securityAPI = {
+    getCaptcha () {
+        return securityInstance.get(`/security/get-captcha-url`)
+    }
+};
+
 
 
 
