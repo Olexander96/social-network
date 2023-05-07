@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Paginator.module.css';
+import classNames from 'classnames';
 
 
 const Paginator = ( {totalItemsCount, pageSize, currentPage, onChangePage, portionSize} ) => {
@@ -24,8 +25,10 @@ const Paginator = ( {totalItemsCount, pageSize, currentPage, onChangePage, porti
                 pages
                     .filter(p => p >= leftPositionPageNumber && p < rightPositionPageNumber)
                     .map(page => {
-                    return <span className={currentPage === page ? styles.selectedPage : styles.page}
-                            onClick={() => onChangePage(page) } key={page}>{ page }</span>
+                    return <span className={classNames(styles.page, {[styles.selectedPage]: currentPage === page}) }//currentPage === page то застосується клас styles.selectedPage
+                                onClick={() => onChangePage(page) } 
+                                key={page}>{ page }
+                            </span>
                     })
             }
             {portionNumber < portionCount

@@ -7,6 +7,7 @@ import NavbarContainer from './components/Navbar/NavbarContainer';
 import { HashRouter } from 'react-router-dom';
 import {Route, Routes} from 'react-router';
 import UsersContainer from './components/Users/UsersContainer';
+import { Navigate } from 'react-router';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from './components/hoc/withRouter';
@@ -18,9 +19,18 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 
 class App extends React.Component {
 
+    catchAllUnhandledErrors() {
+        console.log("Some error")//доробити
+    };
+
     componentDidMount() {
         this.props.initializeApp() //кріекйтор санки
-    }
+        window.addEventListener('unhandledrejections', this.catchAllUnhandledErrors)
+    };
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejections', () => {})
+    };
 
     render () {
         if (!this.props.initialized) {
@@ -33,6 +43,7 @@ class App extends React.Component {
                     <NavbarContainer />
                     <div className="app-wrapper-content">
                         <Routes>
+                            <Route path="/" element={<Navigate to="/profile" />} />
                             <Route path="/profile/:userId?" element={ 
                                 <Suspense fallback={ <Preloader/> }>
                                     <ProfileContainer/>
@@ -45,6 +56,7 @@ class App extends React.Component {
                              } />
                             <Route path="/users/*" element={ <UsersContainer/> } />
                             <Route path="/login/*" element={ <Login/> } /> 
+                            <Route path="*" element={ <div>404 NOT FOUND OR ID DEVELOPING!</div>} /> 
                         </Routes>
                     </div>
                 </div>
