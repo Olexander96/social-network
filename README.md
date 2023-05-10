@@ -1,7 +1,7 @@
-## :pushpin: Social Network
+## :earth_americas: Social Network
 #### :memo: Description: 
 
-The personal social network 
+The social network for React developers. A place where you can expand your community of like-minded programmers
 ___
 
 #### :link: Live Demo: 
@@ -10,14 +10,28 @@ ___
 
 #### :rocket: Technologies Used
 
-* React js
-* Redux
-* JavaScript 
+* HTML
 * CSS
+* JavaScript 
+* React JS
+* Redux
 * AJAX (Axios)
+* React Router
 * Redux Thunk
 * Redux Form
 * Reselect
+* Jest (Testing)
+___
+
+#### :warning: Instruction
+
+#### :one: Before viewing the project, you need to log in.
+
+Login: sheik24021996@gmail.com
+
+Password: Sheikosanya1996
+
+#### :two: If you want to know more about the API used: [API documentation](https://social-network.samuraijs.com/docs)
 ___
 
 #### :envelope: Contacts
