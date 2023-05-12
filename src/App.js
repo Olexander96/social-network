@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import './reset.css';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
-import NavbarContainer from './components/Navbar/NavbarContainer';
+//import NavbarContainer from './components/Navbar/NavbarContainer';
 //import { BrowserRouter } from "react-router-dom";
 import { HashRouter } from 'react-router-dom';
 import {Route, Routes} from 'react-router';
@@ -40,7 +40,7 @@ class App extends React.Component {
             <HashRouter>
                 <div className="app-wrapper">
                     <HeaderContainer/>
-                    <NavbarContainer />
+                    {/* <NavbarContainer /> */}
                     <div className="app-wrapper-content">
                         <Routes>
                             <Route path="/" element={<Navigate to="/profile" />} />

@@ -25,13 +25,13 @@ ___
 
 #### :warning: Instruction
 
-#### :one: Before viewing the project, you need to log in.
+:one: Before viewing the project, you need to log in.
 
 Login: sheik24021996@gmail.com
 
 Password: Sheikosanya1996
 
-#### :two: If you want to know more about the API used: [API documentation](https://social-network.samuraijs.com/docs)
+:two: If you want to know more about the API used: [API documentation](https://social-network.samuraijs.com/docs)
 ___
 
 #### :envelope: Contacts

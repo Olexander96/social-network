@@ -1,33 +1,45 @@
-.block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: rgb(57, 58, 58);
-}
-
-.nav {
-  grid-area: n;
-  
-  padding: 15px;
-}
-
-.item:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.item a {
-  color: white;
-  text-decoration: none;
-}
-
-.item .activeLink {
-  color: gold;
-}
-
-.friendsList {
-  padding: 10px;
+.list {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
+
+
+.item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.item a, .item .activeLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item a span, .item a .icon path {
+  color: silver;
+  fill: silver;
+}
+
+.item a:hover span {
+  color: #000000;
+}
+
+.item a:hover .icon path {
+  fill: #000000;
+}
+
+.item a .icon {
+  height: 30px;
+  width: auto;
+}
+
+.item a span{
+  font-size: 14px ;
+}
+
+
+
+
+
+
+
 

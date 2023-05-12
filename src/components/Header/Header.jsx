@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import NavbarContainer from '../Navbar/NavbarContainer';
 
 const Header = (props) => {
 
@@ -8,6 +9,7 @@ const Header = (props) => {
         <header className={styles.header}>
             <div className={styles.container}>
                 <img src='https://play-lh.googleusercontent.com/ahJtMe0vfOlAu1XJVQ6rcaGrQBgtrEZQefHy7SXB7jpijKhu1Kkox90XDuH8RmcBOXNn' alt='logo'/>
+                <NavbarContainer/>
                 {
                     props.isAuth 
                         ? <div> 

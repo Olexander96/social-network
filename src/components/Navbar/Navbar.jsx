@@ -1,40 +1,53 @@
 import React from 'react';
-import n from './Navbar.module.css';
-import {NavLink} from "react-router-dom";
-import Friend from './Friend/Friend';
+import styles from './Navbar.module.css';
+import {NavLink} from 'react-router-dom';
+import {ReactComponent as ProfileIcon} from '../../assets/images/header/profile-navbar.svg';
+import {ReactComponent as DialogsIcon} from '../../assets/images/header/dialogs-navbar.svg';
+import {ReactComponent as NewsIcon} from '../../assets/images/header/news-navbar.svg';
 
-const setActive = link => link.isActive ? n.activeLink : ""; // якщо лінк активний то додає клас activeLink
+
+const setActive = link => link.isActive ? styles.activeLink : ""; // якщо лінк активний то додає клас activeLink
 
 const Navbar = (props) => {
-    const popularFriends = props.sidebar.popularFriends.map(friend => <Friend name={friend.name} avatar={friend.avatar} key={friend.id}/>)
 
     return (
-        <div className={n.block}>
-            <nav className={n.nav}>
-                <div className={n.item}>
-                    <NavLink to="/profile" className= {setActive}>Profile</NavLink> 
-                </div> 
-                <div className={n.item}>
-                    <NavLink to="/dialogs" className = {setActive}>Dialogs</NavLink>
-                </div>
-                <div className={n.item}>
-                    <NavLink to="/news" className = {setActive}>News</NavLink>
-                </div>
-                <div className={n.item}>
-                    <NavLink to="/music" className = {setActive}>Music</NavLink>
-                </div>
-                <div className={n.item}>
-                    <NavLink to="/users" className = {setActive}>Users</NavLink>
-                </div>
-                <div className={n.item}>
-                    <NavLink to="/settings" className = {setActive}>Settings</NavLink>
-                </div>
-            </nav>
-            <ul className={n.friendsList}>
-                { popularFriends }
-            </ul>
-        </div>
-        
+            <nav className={styles.nav}>
+                <ul className={styles.list}>
+                    <li className={styles.item}>
+                        <NavLink to="/profile" className = {setActive}>
+                            <ProfileIcon className={styles.icon}/>
+                            <span>Profile</span>
+                        </NavLink> 
+                    </li> 
+                    <li className={styles.item}>
+                        <NavLink to="/dialogs" className = {setActive}>
+                            <DialogsIcon className={styles.icon}/>
+                            <span>Dialogs</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink to="/news" className = {setActive}>
+                            <NewsIcon className={styles.icon}/>
+                            <span>News</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink to="/music" className = {setActive}>
+                            <span>Music</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink to="/users" className = {setActive}>
+                            <span>Users</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink to="/settings" className = {setActive}>
+                            <span>Settings</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav> 
     )
 }
 

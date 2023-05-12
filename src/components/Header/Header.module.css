@@ -1,6 +1,6 @@
 .header {
-    grid-area: h;
-    background-color: rgb(89, 124, 124);
+    background-color: #fff;
+    border-bottom: 1px solid silver;
 }
 
 .header .container {
