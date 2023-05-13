@@ -9,7 +9,6 @@
     background-color: #565f5f;
     padding: 10px;
     border-radius: 10px;
-    width: 300px;
 }
 
 .formLoginContainer h1 {
@@ -22,6 +21,7 @@
     max-width: 500px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .formLogin label {
@@ -39,7 +39,11 @@
 
 .formLogin label div input {
     padding: 5px 10px;
-    margin: 0 auto;
+    border: none;
+}
+
+.formLogin label div input {
+    outline: none;
 }
 
 .formLogin label:last-of-type {
@@ -57,6 +61,7 @@
     position: absolute;
     bottom: 3px;
     font-size: 14px;
+    margin: 0 auto;
 }
 
 .formLogin div {
@@ -74,9 +79,16 @@
     position: absolute;
     bottom: 3px;
     font-size: 14px;
+    margin: 0 auto;
 }
 
 .formLogin  button {
     cursor: pointer;
+    padding: 3px 10px;
+    color: #565f5f;
+    font-weight: 700;
+    background-color: #fff;
+    border: none;
+    border-radius: 2px;
 }
 
