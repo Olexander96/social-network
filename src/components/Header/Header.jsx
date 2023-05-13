@@ -2,17 +2,18 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import NavbarContainer from '../Navbar/NavbarContainer';
+import Logo from '../../assets/images/header/custom-logo.PNG'
 
 const Header = (props) => {
 
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <img src='https://play-lh.googleusercontent.com/ahJtMe0vfOlAu1XJVQ6rcaGrQBgtrEZQefHy7SXB7jpijKhu1Kkox90XDuH8RmcBOXNn' alt='logo'/>
+                <img src={ Logo } alt='logo'/>
                 <NavbarContainer/>
                 {
                     props.isAuth 
-                        ? <div> 
+                        ? <div className={styles.loginBlock}> 
                             <span>{ props.login }</span>
                             <NavLink to={"/profile"}>
                                 <button onClick={ props.logout }>Logout</button> 

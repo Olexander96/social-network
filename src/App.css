@@ -6,7 +6,9 @@
 }
 
 .app-wrapper-content {
-  background-color: rgb(247, 237, 225);
+  position: relative;
+  padding-top: 51px;
+  background-color: #fff;
   min-height: calc(100vh - 60px);
 }
 

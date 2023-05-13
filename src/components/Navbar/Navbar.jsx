@@ -4,6 +4,9 @@ import {NavLink} from 'react-router-dom';
 import {ReactComponent as ProfileIcon} from '../../assets/images/header/profile-navbar.svg';
 import {ReactComponent as DialogsIcon} from '../../assets/images/header/dialogs-navbar.svg';
 import {ReactComponent as NewsIcon} from '../../assets/images/header/news-navbar.svg';
+import {ReactComponent as MusicIcon} from '../../assets/images/header/music-navbar.svg';
+import {ReactComponent as UsersIcon} from '../../assets/images/header/users-navbar.svg';
+import {ReactComponent as SettingsIcon} from '../../assets/images/header/settings-navbar.svg';
 
 
 const setActive = link => link.isActive ? styles.activeLink : ""; // якщо лінк активний то додає клас activeLink
@@ -33,16 +36,19 @@ const Navbar = (props) => {
                     </li>
                     <li className={styles.item}>
                         <NavLink to="/music" className = {setActive}>
+                            <MusicIcon className={styles.icon}/>
                             <span>Music</span>
                         </NavLink>
                     </li>
                     <li className={styles.item}>
                         <NavLink to="/users" className = {setActive}>
+                            <UsersIcon className={styles.icon}/>
                             <span>Users</span>
                         </NavLink>
                     </li>
                     <li className={styles.item}>
                         <NavLink to="/settings" className = {setActive}>
+                            <SettingsIcon className={styles.icon}/>
                             <span>Settings</span>
                         </NavLink>
                     </li>

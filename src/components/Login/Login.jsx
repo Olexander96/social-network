@@ -13,7 +13,7 @@ const LoginForm = ({captchaUrl, ...props}) => {
     //<Field component={ "input" } placeholder={ "Login" } name = { "login" }/> - name це газва властивості цього інпута в JSON об'єкті який буде відправлений
     
     return (
-        <form className={ styles.form } onSubmit={props.handleSubmit}> 
+        <form className={ styles.formLogin } onSubmit={props.handleSubmit}> 
             <label className={ styles.login }>
                 { createField(Input, "Email", "email", [required, email] ) }
             </label>
@@ -22,10 +22,10 @@ const LoginForm = ({captchaUrl, ...props}) => {
             </label>
             <label className={ styles.rememberCheck }>
                 { createField("input", null, "rememberMe", [], { type:"checkbox" }) }
-                remember me
+                Remember me
+                {props.error ? <div className={ formStyles.formErrorSummary }>{ props.error }</div> : null} 
             </label>
-            {props.error ? <div className={ formStyles.formErrorSummary }>{ props.error }</div> : null} 
-            {captchaUrl ? <img src={ captchaUrl } alt=""/> : null}
+            {captchaUrl ? <img src={ captchaUrl } alt="captcha"/> : null}
             {captchaUrl ? createField(Input, "Letter from image", "captcha", [required] ) : null}
             <button>Login</button>
         </form> //в пропсах прилетить error коли буде помилка валідації, тому що ми огорнули форму в reduxForm
@@ -43,7 +43,7 @@ const Login = (props) => {
         return <Navigate to="/profile"/>
     } 
     return (
-        <div>
+        <div className={styles.formLoginContainer}>
             <h1>Login</h1>
             <LoginReduxForm captchaUrl = {props.captchaUrl} onSubmit={ onSubmit }/>
         </div>
