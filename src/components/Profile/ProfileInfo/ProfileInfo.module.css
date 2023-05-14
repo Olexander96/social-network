@@ -1,18 +1,76 @@
-.imageBlock img {
-    max-height: 150px;
-    width: 100%;
-}
 .descriptionBlock {
-    padding: 10px;
+    padding: 5px;
+    border-radius: 4px;
 }
-.descriptionBlock img {
-    width: 150px;
+.avatarBlock {
+    width: fit-content;
+    position: relative;
+    padding-bottom: 5px;
+}
+.avatarBlock img {
+    width: 200px;
     height: auto;
+    border: 2px solid #565f5f;
+    border-radius: 4px;
 }
-.profileStatus {
+
+.avatarBlock label {
+    position: absolute;
+    display: block;
+    background-color: transparent;
+    bottom: 9px;
+    left: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #565f5f;
+    padding: 2px;
+}
+.avatarBlock label:hover .downloadIcon {
+    fill: #61DAFB;
+}
+
+.avatarBlock label .downloadIcon {
+    width: 30px;
+    height: auto;
+    fill: #fff;
+}
+
+.avatarBlock input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.status {
+    margin-bottom: 10px;
+    color: #565f5f;
+}
+
+.status input:focus {
+    border: 2px solid #61DAFB;
+    border-radius: 2px;
+    color: #565f5f;
+    font-weight: 700;
+    padding: 3px;
+    width: fit-content;
+    outline: none;
+}
+
+.status span {
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.status .statusIcon {
+    fill: #565f5f;
+    width: 20px;
+    height: auto;
     cursor: pointer;
 }
 
-.contactItem {
-    padding-left: 20px;
+.status .statusIcon:hover {
+    fill: #61DAFB;
 }

@@ -23,7 +23,7 @@ const LoginForm = ({captchaUrl, ...props}) => {
             <label className={ styles.rememberCheck }>
                 { createField("input", null, "rememberMe", [], { type:"checkbox" }) }
                 Remember me
-                {props.error ? <div className={ formStyles.formErrorSummary }>{ props.error }</div> : null} 
+                {props.error ? <div className={ formStyles.formErrorSummary + " " + styles.formErrorSummary }>{ props.error }</div> : null} 
             </label>
             {captchaUrl ? <img src={ captchaUrl } alt="captcha"/> : null}
             {captchaUrl ? createField(Input, "Letter from image", "captcha", [required] ) : null}

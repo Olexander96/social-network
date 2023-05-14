@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import pi from './ProfileInfo.module.css';
+import styles from './ProfileInfo.module.css';
+import { ReactComponent as EditStatusIcon } from '../../../assets/images/profile/edit-status-icon.svg';
 
 
 const ProfileStatusWithHooks = (props) => {
@@ -24,22 +25,19 @@ const ProfileStatusWithHooks = (props) => {
         };
 
         return (
-            <div>
+            <div className= {styles.status}>
                 {editMode  
-                    ? <div>  
-                        <input 
+                    ? <input 
                             autoFocus={ true } 
                             onBlur={ deactivateEditMode } // коли натиснув поза інпутом
                             value={ currentStatus }
                             onChange={ onChangedStatus }
                         />
-                      </div>
+                     
                     : <div>
-                        <span 
-                            className={pi.profileStatus} 
-                            onDoubleClick={ activateEditMode } 
-                        >{ props.status || "-------"}</span>
-                      </div> //тут показуємо статус який прийде з стейта по API 
+                        <span>{ props.status || "-------"}</span>
+                        <EditStatusIcon onClick={ activateEditMode } className={styles.statusIcon}/>
+                      </div>//тут показуємо статус який прийде з стейта по API 
                 }
             </div>
         )

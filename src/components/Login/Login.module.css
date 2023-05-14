@@ -44,11 +44,12 @@
 
 .formLogin label div input {
     outline: none;
+    border-radius: 2px;
 }
 
 .formLogin label:last-of-type {
     position: relative;
-    margin-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 .formLogin label div {
@@ -90,5 +91,14 @@
     background-color: #fff;
     border: none;
     border-radius: 2px;
+}
+
+.formLogin label .formErrorSummary {
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    font-size: 14px;
+    margin: 0 auto;
+    padding-bottom: 0px;
 }
 
