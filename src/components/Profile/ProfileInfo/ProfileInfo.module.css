@@ -74,3 +74,62 @@
 .status .statusIcon:hover {
     fill: #61DAFB;
 }
+
+.profileData {
+    display: flex;
+    flex-direction: column;
+    color: #565f5f;
+}
+.profileData .profileEditBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profileEditBlock h2 {
+    margin-right: 15px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.profileEditBlock .EditProfileDataIcon {
+    fill: #565f5f;
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+}
+
+.profileEditBlock .EditProfileDataIcon:hover {
+    fill: #61DAFB;
+}
+
+.profileDataList {
+    margin-bottom: 15px
+}
+
+.profileDataList li {
+    font-weight: 700;
+}
+
+.profileDataList li span {
+    font-weight: 400;
+}
+
+.profileContacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileContacts h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.profileContacts .profileContactsList li {
+    font-weight: 700;
+}
+
+.profileContacts .profileContactsList li span {
+    font-weight: 400;
+}

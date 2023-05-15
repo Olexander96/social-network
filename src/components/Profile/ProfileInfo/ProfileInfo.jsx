@@ -41,21 +41,19 @@ const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, sa
                             : null
                         }
                     </div>
-                    <ProfileStatusWithHooks status={ status } updateUserStatus = { updateUserStatus }/>
-                    <div className={styles.profileDataBlock}>
-                        <h1>Profile info:</h1>
-                        {editMode 
-                            ? <ProfileDataEditForm initialValues={ profile } //initialValues це вбудована ф-ція в redux-form-state яка дозволяє передати значення які до нас прийшли в режим редагування інпута
-                                onSubmit={ onSubmit } 
-                                profile = { profile }
-                                editModeStatus = {editModeStatus}
-                            /> 
-                            : <ProfileData profile = { profile } 
-                                isOwner = { isOwner }
-                                activateEditMode = {() => { setEditMode(true) }}
-                            />  
-                        }
-                    </div> 
+                    { isOwner ? <ProfileStatusWithHooks status={ status } updateUserStatus = { updateUserStatus }/> :null }
+                    {editMode 
+                        ? <ProfileDataEditForm initialValues={ profile } //initialValues це вбудована ф-ція в redux-form-state яка дозволяє передати значення які до нас прийшли в режим редагування інпута
+                            onSubmit={ onSubmit } 
+                            profile = { profile }
+                            editModeStatus = {editModeStatus}
+                        /> 
+                        : <ProfileData profile = { profile } 
+                            isOwner = { isOwner }
+                            activateEditMode = {() => { setEditMode(true) }}
+                        />  
+                    }
+                    
                 </div>
             </div>
     )

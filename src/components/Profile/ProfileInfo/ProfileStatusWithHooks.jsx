@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './ProfileInfo.module.css';
 import { ReactComponent as EditStatusIcon } from '../../../assets/images/profile/edit-status-icon.svg';
 
-
 const ProfileStatusWithHooks = (props) => {
 
         let [editMode, setEditMode] = useState(false);
