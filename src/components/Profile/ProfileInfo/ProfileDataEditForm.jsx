@@ -7,34 +7,35 @@ import formStyles from "../../common/FormControls/FormControls.module.css";
 
 const ProfileDataEditForm = ( {handleSubmit, profile, error, editModeStatus} ) => {
     return (
-        <form onSubmit={ handleSubmit }>
-            <button >Save</button>
+        <form  className={ styles.dataEditForm } onSubmit={ handleSubmit }>
+            <button>Save</button>
             {error ? <div className={ formStyles.formErrorSummary }>{ error }</div> : null} 
-            <div>
-                <span>Full name:</span>
+            <label>
+                Full name:
                 { createField( Input, "Full name", "fullName", []) }
-            </div>
-            <div>
-                <span>About me:</span>
+            </label>
+            <label>
+                About me:
                 { createField( Textarea, "About me", "aboutMe", []) }
-            </div>
-            <div>
-                <span>Looking for a job:</span>
+            </label>
+            <label className={styles.jobCheck}>
+                Looking for a job:
                 { createField( Input, "", "lookingForAJob", [], {type: "checkbox"}) }
-            </div>
-            <div>
-                <span>My professional skills:</span>
+            </label>
+            <label>
+                My professional skills:
                 { createField( Textarea, "My professional skills", "lookingForAJobDescription", []) }
-            </div> 
-            <div>
-                <span>Contacts: { Object.keys(profile.contacts).map(key => {
+            </label> 
+            <div className={styles.contactsBlock}>
+                <span>Contacts:</span> 
+                { Object.keys(profile.contacts).map(key => {
                     return (
-                        <div className={styles.contactItem} key={key}>
-                            <span>{key}</span>
+                        <label className={styles.contactItem} key={key}>
+                            { key }
                             { createField(Input, key, "contacts." + key, []) }
-                        </div>
+                        </label>
                     )
-                })}</span>
+                })}
             </div>
         </form>
     ) 

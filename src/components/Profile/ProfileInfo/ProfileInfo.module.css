@@ -133,3 +133,66 @@
 .profileContacts .profileContactsList li span {
     font-weight: 400;
 }
+
+/* ProfileDataEditForm */
+.dataEditForm {
+    display: flex;
+    flex-direction: column;
+    color: #565f5f;
+    font-weight: 700;
+    max-width: 300px;
+}
+.dataEditForm button {
+    background-color: #565f5f;
+    border: none;
+    padding: 5px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 2px;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.dataEditForm button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
+}
+
+.dataEditForm label input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px 8px;
+    color: #565f5f;
+}
+.dataEditForm label input:focus {
+    color: #565f5f;
+    outline: none;
+    border: 2px solid #61DAFB;
+}
+
+.dataEditForm label textarea {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 8px;
+    color: #565f5f;
+}
+
+.dataEditForm label textarea:focus {
+    color: #565f5f;
+    outline: none;
+    border: 2px solid #61DAFB;
+}
+
+.contactsBlock {
+    padding-top: 10px;
+}
+.contactsBlock span {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contactItem, .contactItem input {
+    margin-left: 15px;
+}

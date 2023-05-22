@@ -35,7 +35,6 @@ const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, sa
                         {isOwner 
                             ? <label>
                                     <DownloadImage className={ styles.downloadIcon}/>
-                                    {/* change image */}
                                     <input type='file' onChange={ sendPhotoToServer }/>
                               </label>
                             : null

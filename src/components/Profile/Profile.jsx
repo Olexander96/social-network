@@ -15,7 +15,7 @@ const Profile = (props) => {
                 saveProfileFormData = {props.saveProfileFormData}
                 editModeStatus = {props.editModeStatus}
             />
-            <MyPostsContainer />
+            {props.isOwner ? <MyPostsContainer /> : null}
         </div>
     )
 }
