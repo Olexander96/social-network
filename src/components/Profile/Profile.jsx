@@ -7,7 +7,7 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 const Profile = (props) => {
     return (
         <div className={styles.content}>
-            <ProfileInfo className={ styles.ProfileInfo } profile={ props.profile } 
+            <ProfileInfo profile={ props.profile } 
                 status={ props.status } 
                 updateUserStatus = { props.updateUserStatus }
                 isOwner={props.isOwner}
@@ -15,7 +15,7 @@ const Profile = (props) => {
                 saveProfileFormData = {props.saveProfileFormData}
                 editModeStatus = {props.editModeStatus}
             />
-            {props.isOwner ? <MyPostsContainer /> : null}
+            {props.isOwner ? <MyPostsContainer className = {styles.postsBlock} /> : null}
         </div>
     )
 }

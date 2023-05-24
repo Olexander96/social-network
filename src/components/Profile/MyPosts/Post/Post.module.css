@@ -2,13 +2,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: silver;
+    background-color: #565f5f;
+    border-radius: 5px;
     padding: 5px;
+    color: #fff;
 }
 .item:not(:last-child) {
     margin-bottom: 15px;
 }
 .item img {
-    width: 100px;
+    width: 70px;
     border-radius: 50%;
+}
+.likesBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.likesBlock .likesIcon {
+    width: 24px;
+    height: auto;
+    margin-bottom: 2px;
 }

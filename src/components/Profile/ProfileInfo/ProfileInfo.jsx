@@ -28,7 +28,6 @@ const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, sa
         return <Preloader/>
     } 
     return (
-            <div>
                 <div className={styles.descriptionBlock}>
                     <div className={ styles.avatarBlock }>
                         <img src = { profile.photos.large || userPhoto } alt='user-avatar'/>
@@ -54,7 +53,6 @@ const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, sa
                     }
                     
                 </div>
-            </div>
     )
 }
 

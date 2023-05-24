@@ -1,12 +1,16 @@
 import React from 'react';
-import p from './Post.module.css';
+import styles from './Post.module.css';
+import {ReactComponent as LikesIcon} from '../../../../assets/images/profile/likes-icon.svg';
 
 const Post = (props) => {
     return (
-        <div className={p.item}>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY4JmSLi5dZYfNLYBW-LtPGbN4W571XtNMVQ&usqp=CAU" alt="avatar"/>
+        <div className={styles.item}>
+            <img src={ props.profilePhoto } alt="avatar"/>
             <span>{props.message}</span>
-            <span>likes {props.likesCount}</span>
+            <div className={ styles.likesBlock }>
+                <LikesIcon className={ styles.likesIcon }/>
+                <span>{props.likesCount}</span>
+            </div>
         </div>
     )
 }

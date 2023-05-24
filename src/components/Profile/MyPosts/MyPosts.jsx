@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './Post/Post';
-import m from './MyPosts.module.css';
+import styles from './MyPosts.module.css';
 import MyNewPostReduxForm from './MyNewPostReduxForm';
 
 
@@ -10,17 +10,17 @@ const MyPosts = (props) => {
     //     return nextProps !== this.props
     // } //а для функцыональної використовуєм memo
     
-        let postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount= {p.likesCount}/>); // з кожним елементом масиву створили компоненту
+        let postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount= {p.likesCount} profilePhoto = { props.profilePage.profile.photos.large  }/>); // з кожним елементом масиву створили компоненту
         
         const onAddPost = (values) => {
             props.addPost(values.newPost)
         };
 
-        // console.log("RENDER")
         return (
-            <div className={m.postsBlock}>
+            <div className={styles.postsBlock}>
+                <h2>My Posts</h2>
                 <MyNewPostReduxForm onSubmit={ onAddPost } />
-                <div className={m.posts}>
+                <div className={styles.posts}>
                     { postsElements }
                 </div>
             </div>

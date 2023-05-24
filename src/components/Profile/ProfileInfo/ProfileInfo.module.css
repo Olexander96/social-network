@@ -1,7 +1,10 @@
 .descriptionBlock {
+    border: 1px solid #565f5f;
     padding: 5px;
     border-radius: 4px;
+    margin-bottom: 10px;
 }
+
 .avatarBlock {
     width: fit-content;
     position: relative;
@@ -112,6 +115,10 @@
     font-weight: 700;
 }
 
+.profileDataList li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
 .profileDataList li span {
     font-weight: 400;
 }
@@ -124,10 +131,15 @@
 .profileContacts h3 {
     font-size: 20px;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .profileContacts .profileContactsList li {
     font-weight: 700;
+}
+
+.profileContacts .profileContactsList li:not(:last-child) {
+    margin-bottom: 5px;
 }
 
 .profileContacts .profileContactsList li span {
