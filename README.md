@@ -17,7 +17,7 @@ ___
 * Redux
 * AJAX (Axios)
 * React Router
-* Redux Hooks
+* React Hooks
 * Redux Thunk
 * Redux Form
 * Reselect

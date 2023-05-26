@@ -10,8 +10,8 @@ const MyPosts = (props) => {
     //     return nextProps !== this.props
     // } //а для функцыональної використовуєм memo
     
-        let postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount= {p.likesCount} profilePhoto = { props.profilePage.profile.photos.large  }/>); // з кожним елементом масиву створили компоненту
-        
+        let postsElements = props.profilePage.posts.map(p => <Post message = {p.message} key = {p.id} likesCount = {p.likesCount} profilePhoto={props.profilePage.profile ? props.profilePage.profile.photos.large : null}/>); // з кожним елементом масиву створили компоненту
+
         const onAddPost = (values) => {
             props.addPost(values.newPost)
         };
