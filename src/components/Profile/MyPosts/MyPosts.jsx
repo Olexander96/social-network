@@ -9,13 +9,26 @@ const MyPosts = (props) => {
     // shouldComponentUpdate(nextProps, nextState) { // те саме що і PureComponent (аби це була класова компонента)
     //     return nextProps !== this.props
     // } //а для функцыональної використовуєм memo
-    
-        let postsElements = props.profilePage.posts.map(p => <Post message = {p.message} key = {p.id} likesCount = {p.likesCount} profilePhoto={props.profilePage.profile ? props.profilePage.profile.photos.large : null}/>); // з кожним елементом масиву створили компоненту
 
         const onAddPost = (values) => {
             props.addPost(values.newPost)
         };
 
+        const onDeletePost = (id) => {
+            props.deletePost(id)
+        };
+
+
+        let postsElements = props.profilePage.posts.map(p => 
+            <Post message = {p.message} 
+                key = {p.id} 
+                likesCount = {p.likesCount} 
+                profilePhoto={props.profilePage.profile ? props.profilePage.profile.photos.large : null}
+                onDeletePost = { onDeletePost }
+                postId = {p.id}
+            />); // з кожним елементом масиву створили компоненту
+
+        
         return (
             <div className={styles.postsBlock}>
                 <h2>My Posts</h2>

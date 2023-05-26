@@ -1,7 +1,6 @@
 import { profileAPI } from '../api/api';
 import { stopSubmit } from 'redux-form';
 
-
 const ADD_POST = "profile/ADD-POST";
 const SET_USER_PROFILE = "profile/SET_USER_PROFILE";
 const SET_STATUS = "profile/SET_STATUS";
@@ -23,7 +22,14 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_POST: 
-            let lastElemId = {...state}.posts[{...state}.posts.length - 1].id;
+            let lastElemId;
+
+            if ({...state}.posts.length < 1) {
+                lastElemId = 0;
+            } else {
+                lastElemId = {...state}.posts[{...state}.posts.length - 1].id;
+            }
+            
             const newPost = {
                 id: lastElemId + 1, 
                 message: action.post, 

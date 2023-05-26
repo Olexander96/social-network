@@ -10,17 +10,38 @@
 .item:not(:last-child) {
     margin-bottom: 15px;
 }
+
+.itemDeleting { 
+    opacity: 0;
+    transition-duration: 2s;
+}
 .item img {
-    width: 70px;
+    width: 80px;
     border-radius: 50%;
 }
-.likesBlock {
+.rightBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 80px;
+}
+.rightBlock .likesBlock {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.likesBlock .likesIcon {
+.rightBlock .likesBlock .likesIcon {
     width: 24px;
     height: auto;
     margin-bottom: 2px;
+}
+.rightBlock .deletePostIcon {
+    fill: #fff;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+.rightBlock .deletePostIcon:hover {
+    transform: scale(1.2);
 }
