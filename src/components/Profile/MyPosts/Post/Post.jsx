@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Post.module.css';
 import {ReactComponent as LikesIcon} from '../../../../assets/images/profile/likes-icon.svg';
 import {ReactComponent as DeletePostIcon} from '../../../../assets/images/profile/post-delete-icon.svg';

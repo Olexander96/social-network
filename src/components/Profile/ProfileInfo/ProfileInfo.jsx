@@ -29,17 +29,19 @@ const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, sa
     } 
     return (
                 <div className={styles.descriptionBlock}>
-                    <div className={ styles.avatarBlock }>
-                        <img src = { profile.photos.large || userPhoto } alt='user-avatar'/>
-                        {isOwner 
-                            ? <label>
-                                    <DownloadImage className={ styles.downloadIcon}/>
-                                    <input type='file' onChange={ sendPhotoToServer }/>
-                              </label>
-                            : null
-                        }
+                    <div className={ styles.mainBlock }>
+                        <div className={ styles.avatarBlock }>
+                            <img src = { profile.photos.large || userPhoto } alt='user-avatar'/>
+                            {isOwner 
+                                ? <label>
+                                        <DownloadImage className={ styles.downloadIcon}/>
+                                        <input type='file' onChange={ sendPhotoToServer }/>
+                                </label>
+                                : null
+                            }
+                        </div>
+                        { isOwner ? <ProfileStatusWithHooks status={ status } updateUserStatus = { updateUserStatus }/> :null }
                     </div>
-                    { isOwner ? <ProfileStatusWithHooks status={ status } updateUserStatus = { updateUserStatus }/> :null }
                     {editMode 
                         ? <ProfileDataEditForm initialValues={ profile } //initialValues це вбудована ф-ція в redux-form-state яка дозволяє передати значення які до нас прийшли в режим редагування інпута
                             onSubmit={ onSubmit } 
