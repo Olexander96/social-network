@@ -56,7 +56,7 @@ class App extends React.Component {
                              } />
                             <Route path="/users/*" element={ <UsersContainer/> } />
                             <Route path="/login/*" element={ <Login/> } /> 
-                            <Route path="*" element={ <div>404 NOT FOUND OR ID DEVELOPING!</div>} /> 
+                            <Route path="*" element={ <div className="not-found">THIS PAGE IN DEVELOPING!</div>} /> 
                         </Routes>
                     </div>
                 </div>

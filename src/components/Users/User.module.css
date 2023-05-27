@@ -1,4 +1,42 @@
-.photoUrl {
-    width: 80px;
-    height: auto;
+.userBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    color: #565f5f;
+    font-weight: 700;
+    /* border: 1px solid #565f5f;
+    border-radius: 4px; */
+    padding: 5px;
 }
+.photoUrl {
+    width: auto;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.followButton, .unfollowButton {
+    border: none;
+    padding: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 12px;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+.followButton {
+    border: 2px solid #61DAFB;
+    background-color: #565f5f;
+    color: #fff;
+}
+.unfollowButton {
+    border: 2px solid #565f5f;
+    background-color: #61DAFB;
+    color: #565f5f;
+}
+
+button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
+}
+

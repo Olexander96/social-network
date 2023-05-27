@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
-import userPhoto from '../../../assets/images/user.jpg';
+import userPhoto from '../../../assets/images/user.png';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileData from './ProfileData';
 import ProfileDataEditForm from './ProfileDataEditForm';

@@ -1,7 +1,29 @@
+.paginator {
+    color: #565f5f;
+    margin-bottom: 15px;
+}
+
+.paginator button {
+    background-color: #565f5f;
+    border: none;
+    padding: 5px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 2px;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+.paginator button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
+}
+
 .page {
     cursor: pointer;
     margin: 0 5px;
 }
 .selectedPage {
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 20px;
 }
