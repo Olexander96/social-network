@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import './reset.css';
-import './App.css';
+import styles from './App.module.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 //import NavbarContainer from './components/Navbar/NavbarContainer';
 //import { BrowserRouter } from "react-router-dom";
@@ -14,6 +14,9 @@ import { withRouter } from './components/hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
 import Preloader from './components/common/Preloader/Preloader';
 import Login from './components/Login/Login';
+import classNames from 'classnames';
+import Settings from './components/Settings/Settings';
+
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer')); //буде лінива загрузка обертаємо Suspense
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));//буде лінива загрузка обертаємо Suspense
 
@@ -34,14 +37,13 @@ class App extends React.Component {
 
     render () {
         if (!this.props.initialized) {
-            return <Preloader className = "app-preloader"/>
+            return <Preloader className = {styles.appPreloader}/>
         } 
         return (
             <HashRouter>
-                <div className="app-wrapper">
+                <div className={styles.appWrapper}>
                     <HeaderContainer/>
-                    {/* <NavbarContainer /> */}
-                    <div className="app-wrapper-content">
+                    <div className= { classNames(styles.appWrapperContent, {[styles.appWrapperContentDarkTheme]: this.props.themeType === "DARK"})  }>
                         <Routes>
                             <Route path="/" element={<Navigate to="/profile" />} />
                             <Route path="/profile/:userId?" element={ 
@@ -56,7 +58,8 @@ class App extends React.Component {
                              } />
                             <Route path="/users/*" element={ <UsersContainer/> } />
                             <Route path="/login/*" element={ <Login/> } /> 
-                            <Route path="*" element={ <div className="not-found">THIS PAGE IN DEVELOPING!</div>} /> 
+                            <Route path="/settings/*" element={ <Settings/> } /> 
+                            <Route path="*" element={ <div className={styles.notFound}>THIS PAGE IN DEVELOPING!</div>} /> 
                         </Routes>
                     </div>
                 </div>
@@ -67,7 +70,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        initialized: state.app.initialized
+        initialized: state.app.initialized,
+        themeType: state.settings.themeType
     }
 }
 

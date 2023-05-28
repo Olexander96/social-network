@@ -1,20 +1,23 @@
-.app-wrapper {
+.appWrapper {
   box-sizing: border-box;
   font-family: 'Wix Madefor Text', 'Arial', sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.app-wrapper-content {
+.appWrapperContent {
   position: relative;
   padding-top: 51px;
   background-color: #fff;
   min-height: calc(100vh - 60px);
 }
-.app-preloader {
+.appWrapperContentDarkTheme {
+  background-color: #565f5f;
+}
+.appPreloader {
   position: relative;
 }
-.not-found {
+.notFound {
   width: fit-content;
   position: absolute;
   top: 50%;

@@ -7,6 +7,7 @@ import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from "redux-form";
 import appReducer from "./app-reducer";
+import settingsReducer from "./settings-reducer";
 
 let reducers = combineReducers({
     app: appReducer,
@@ -15,7 +16,8 @@ let reducers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
-    form: formReducer 
+    form: formReducer,
+    settings: settingsReducer 
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //для redux devtools
