@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        sidebar: state.sidebar
+        sidebar: state.sidebar,
+        themeType: state.settings.themeType
     }
 }
 

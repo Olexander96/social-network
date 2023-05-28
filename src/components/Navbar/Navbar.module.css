@@ -2,45 +2,51 @@
   width: 50%;
 }
 
-.list {
+.nav .list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
 
-.item:not(:last-child) {
+.nav .item:not(:last-child) {
   margin-right: 5px;
 }
 
-.item a, .item .activeLink {
+.nav .item a, .nav .item .activeLink {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
 }
 
-.item a span, .item a .icon path {
+.nav .item a span, .nav .item a .icon path {
   color: #fff;
   fill: #fff;
 }
 
-.item a:hover span {
+.nav .item a:hover span {
   color: #61DAFB;
 }
 
-.item a:hover .icon path {
+.nav .item a:hover .icon path {
   fill: #61DAFB;
 }
 
-.item a .icon {
+.nav .item a .icon {
   height: 22px;
   width: auto;
   margin-bottom: 5px;
 }
 
-.item a span{
+.nav .item a span{
   font-size: 14px ;
+}
+
+/* темна тема */
+.navDark .item a span, .navDark .item a .icon path{
+  color: #565f5f;
+  fill: #565f5f;
 }
 
 @media only screen and (max-width: 600px){

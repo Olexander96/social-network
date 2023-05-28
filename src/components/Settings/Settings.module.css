@@ -1,0 +1,69 @@
+.settingsBlock {
+    padding: 10px;
+    color: #565f5f;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsBlock h1 {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.settingsBlock label {
+    cursor: pointer;
+} 
+
+.settingsBlock label:not(:last-child)  {
+    margin-bottom: 8px
+}
+
+.settingsBlock label input {
+    margin-right: 10px;
+    cursor: pointer;
+    appearance: none;
+    font: inherit;
+    color: #565f5f;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid #565f5f;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: inline-grid;
+    place-content: center;
+}
+
+.settingsBlock label input::before {
+    cursor: pointer;
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #61DAFB;
+}
+  
+.settingsBlock label input:checked::before {
+    transform: scale(1);
+    cursor: pointer;
+}
+  
+.settingsBlock label input:focus {
+    outline: max(2px, 0.15em) solid #565f5f;
+    outline-offset: max(2px, 0.15em);
+}
+
+/* темна тема */
+.settingsBlockDark {
+    color: #fff;
+}
+.settingsBlockDark label input {
+    color: #fff;
+    border: 0.15em solid #fff;
+}
+
+.settingsBlockDark label input:focus {
+    outline: max(2px, 0.15em) solid #fff;
+}

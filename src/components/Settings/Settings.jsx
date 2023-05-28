@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Settings.module.css"
 import { connect } from "react-redux";
 import { changeThemeCreator } from "../../redux/settings-reducer";
+import classNames from 'classnames';
 
 const Settings = (props) => {
 
@@ -10,20 +11,23 @@ const Settings = (props) => {
     }
 
     return (
-        <div className={ styles.settingsBlock }>
+        <div className={ classNames(styles.settingsBlock, {[styles.settingsBlockDark]: props.themeType === 'DARK'})  }>
             <h1>SETTINGS</h1>
-            <label htmlFor="selectThemeDark">Dark Theme</label>
-            <input onChange = { () => {setTheme("DARK")}}
-                type="radio" 
-                id="selectThemeDark" 
-                name="theme"
-            />
-            <label htmlFor="selectThemeLight">Light Theme</label>
-            <input onChange = { () => {setTheme("LIGHT")} }
-                type="radio" 
-                id="selectThemeLight" 
-                name="theme"
-            />
+            <label htmlFor="selectThemeDark">
+                <input onChange = { () => {setTheme("DARK")}}
+                    type="radio" 
+                    id="selectThemeDark" 
+                    name="theme"
+                />
+            Dark Theme</label>
+            <label htmlFor="selectThemeLight">
+                <input onChange = { () => {setTheme("LIGHT")} }
+                    type="radio" 
+                    id="selectThemeLight" 
+                    name="theme"
+                />
+            Light Theme</label>
+            
         </div>
     )
 }
@@ -33,13 +37,5 @@ const mapStateToProps = (state) => {
         themeType: state.settings.themeType
     }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         changeTheme: (themeType) => {
-//             dispatch(changeThemeCreator(themeType))
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps, {changeThemeCreator})(Settings);

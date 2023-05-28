@@ -7,14 +7,15 @@ import {ReactComponent as NewsIcon} from '../../assets/images/header/news-navbar
 import {ReactComponent as MusicIcon} from '../../assets/images/header/music-navbar.svg';
 import {ReactComponent as UsersIcon} from '../../assets/images/header/users-navbar.svg';
 import {ReactComponent as SettingsIcon} from '../../assets/images/header/settings-navbar.svg';
+import classNames from 'classnames';
 
 
 const setActive = link => link.isActive ? styles.activeLink : ""; // якщо лінк активний то додає клас activeLink
 
-const Navbar = (props) => {
+const Navbar = ({themeType}) => {
 
     return (
-            <nav className={styles.nav}>
+            <nav className={classNames(styles.nav, {[styles.navDark]: themeType === 'DARK'})}>
                 <ul className={styles.list}>
                     <li className={styles.item}>
                         <NavLink to="/profile" className = {setActive}>

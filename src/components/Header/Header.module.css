@@ -44,3 +44,17 @@
     border: 1px solid #61DAFB;
     color: #61DAFB;
 }
+
+/* темна тема */
+.headerDark {
+    background-color: #fff;
+}
+
+.headerDark .loginBlock span {
+    color: #565f5f;
+}
+
+.headerDark button {
+    border: 1px solid #565f5f;
+    color: #565f5f;
+}
