@@ -43,3 +43,7 @@ export const getFollowingInProgress = (state) => {
 export const getPortionSize = (state) => {
     return state.usersPage.portionSize
 };
+
+export const getThemeValue = (state) => {
+    return state.settings.themeType
+};

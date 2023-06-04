@@ -6,8 +6,9 @@ import User from "./User";
 const Users = (props) => {
         
         return (
-            <div className={styles.usersBlock}>
+            <div className={ styles.usersBlock }>
                 <Paginator className={styles.usersPaginator}
+                    themeType = {props.themeType}
                     totalItemsCount = {props.totalItemsCount} 
                     pageSize = {props.pageSize} 
                     currentPage = { props.currentPage}
@@ -17,7 +18,8 @@ const Users = (props) => {
                 <div className={styles.usersList}>
                     {
                         props.users.map(u => (
-                            <User key={u.id}
+                            <User themeType = {props.themeType}
+                                key={u.id}
                                 user = {u} 
                                 followingInProgress = {props.followingInProgress} 
                                 unfollowUser = {props.unfollowUser} 

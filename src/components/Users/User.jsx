@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styles from './User.module.css';
-import userPhoto from '../../assets/images/user.png'
+import userPhoto from '../../assets/images/user.png';
+import classNames from 'classnames';
 
-const User = ( {user, followingInProgress, unfollowUser, followUser } ) => {
+const User = ( {user, followingInProgress, unfollowUser, followUser, themeType } ) => {
         
     return (
-            <div className={ styles.userBlock } key={user.id}>
+            <div className={ classNames(styles.userBlock, {[styles.userBlockDark]: themeType === 'DARK'}) } key={user.id}>
                 <NavLink to={`/profile/${ user.id}`}>
                     <img className={styles.photoUrl} src={user.photos.small || userPhoto} alt='user' />
                 </NavLink>

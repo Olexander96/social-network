@@ -43,6 +43,7 @@
 .header button:hover {
     border: 1px solid #61DAFB;
     color: #61DAFB;
+    background: transparent;
 }
 
 /* темна тема */

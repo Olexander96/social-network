@@ -27,3 +27,18 @@
     font-weight: 900;
     font-size: 20px;
 }
+
+/* dark theme */
+.paginatorDark {
+    color: #fff;
+}
+
+.paginatorDark button {
+    background-color: #fff;
+    color: #565f5f;
+}
+
+.paginatorDark button:hover {
+    background-color: #61DAFB;
+    color: #fff;
+}

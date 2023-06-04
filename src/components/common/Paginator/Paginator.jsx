@@ -3,7 +3,7 @@ import styles from './Paginator.module.css';
 import classNames from 'classnames';
 
 
-const Paginator = ( {totalItemsCount, pageSize, currentPage, onChangePage, portionSize} ) => {
+const Paginator = ( {totalItemsCount, pageSize, currentPage, onChangePage, portionSize, themeType} ) => {
     const pagesCount = Math.ceil(totalItemsCount / pageSize);
     const pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -16,7 +16,7 @@ const Paginator = ( {totalItemsCount, pageSize, currentPage, onChangePage, porti
     let rightPositionPageNumber = portionNumber * portionSize;
 
     return (
-        <div className={styles.paginator}>
+        <div className={ classNames(styles.paginator, {[styles.paginatorDark]: themeType === 'DARK'}) }>
             {portionNumber > 1 
                 ? <button onClick={ () => {setPortionNumber(portionNumber - 1)}}>Prev</button>
                 : null

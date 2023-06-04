@@ -40,3 +40,23 @@ button:hover {
     color: #565f5f;
 }
 
+/* темна тема */
+.userBlockDark {
+    color: #fff;
+}
+
+.userBlockDark .followButton {
+    background-color: #fff;
+    color: #565f5f;
+}
+
+.userBlockDark .unfollowButton {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.userBlockDark button:hover {
+    background-color: #61DAFB;
+    color: #fff;
+}
+

@@ -12,6 +12,7 @@
     gap: 20px;
 }
 
+
 @media only screen and (max-width: 690px){
     .usersList {
         grid-template-columns: 1fr 1fr;
