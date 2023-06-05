@@ -7,6 +7,7 @@ import { required, email } from "../../utils/validators/validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router";
+import classNames from 'classnames';
 
 const LoginForm = ({captchaUrl, ...props}) => {
     //handleSubmit робить event.preventdefault(), збирає всі дані з форми в JSON об♥9єкт, огортається функцією onSubmit яка приходить у пропсах і ці дані можна записати в стейт
@@ -22,6 +23,7 @@ const LoginForm = ({captchaUrl, ...props}) => {
             </label>
             <label className={ styles.rememberCheck }>
                 { createField("input", null, "rememberMe", [], { type:"checkbox" }) }
+                <span className={ styles.fake}></span>
                 Remember me
                 {props.error ? <div className={ formStyles.formErrorSummary + " " + styles.formErrorSummary }>{ props.error }</div> : null} 
             </label>
@@ -43,9 +45,9 @@ const Login = (props) => {
         return <Navigate to="/profile"/>
     } 
     return (
-        <div className={styles.formLoginContainer}>
+        <div className={ classNames(styles.formLoginContainer, {[styles.formLoginContainerDark]: props.themeType === 'DARK'}) }>
             <h1>Login</h1>
-            <LoginReduxForm captchaUrl = {props.captchaUrl} onSubmit={ onSubmit }/>
+            <LoginReduxForm onSubmit={ onSubmit } captchaUrl = {props.captchaUrl} />
         </div>
     )
 }
@@ -53,7 +55,8 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
-        captchaUrl: state.auth.captchaUrl
+        captchaUrl: state.auth.captchaUrl,
+        themeType: state.settings.themeType
     }
 }
 

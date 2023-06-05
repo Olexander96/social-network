@@ -18,7 +18,7 @@
 }
 
 .formLoginContainer .formLogin {
-    max-width: 500px;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,9 +36,18 @@
     margin-bottom: 10px;
     margin-top: 10px;
 }
+.formLogin label {
+    width: 100%;
+}
+
+.formLogin label div {
+    position: relative;
+    padding-bottom: 20px;
+}
 
 .formLogin label div input {
-    padding: 5px 10px;
+    min-width: 94%;
+    padding: 10px;
     border: none;
 }
 
@@ -46,15 +55,49 @@
     outline: none;
     border-radius: 2px;
 }
-
-.formLogin label:last-of-type {
+/* стиль чекбокса */
+.formLogin .rememberCheck {
     position: relative;
-    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    cursor: pointer;
 }
 
-.formLogin label div {
+.rememberCheck input {
+    display: none;
+}
+
+.rememberCheck .fake {
+    border: 1px solid transparent;
     position: relative;
-    padding-bottom: 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.rememberCheck .fake::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #61DAFB;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.rememberCheck input:checked + .fake {
+    border: 1px solid #61DAFB;
+}
+.rememberCheck input:checked + .fake::before {
+    opacity: 1;
 }
 
 .formLogin label div span {
@@ -83,7 +126,7 @@
     margin: 0 auto;
 }
 
-.formLogin  button {
+.formLogin button {
     cursor: pointer;
     padding: 3px 10px;
     color: #565f5f;
@@ -91,6 +134,11 @@
     background-color: #fff;
     border: none;
     border-radius: 2px;
+}
+
+.formLogin button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
 }
 
 .formLogin label .formErrorSummary {
@@ -102,3 +150,41 @@
     padding-bottom: 0px;
 }
 
+/* темна тема */
+.formLoginContainerDark {
+    background-color: #fff;
+}
+.formLoginContainerDark h1 {
+    color: #565f5f;
+}
+.formLoginContainerDark .formLogin label {
+    color: #565f5f;
+}
+.formLoginContainerDark .rememberCheck .fake {
+    background-color: #565f5f;
+}
+.formLoginContainerDark .formLogin button {
+    background-color: #565f5f;
+    color: #fff;
+}
+.formLoginContainerDark .formLogin button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
+}
+.formLoginContainerDark .formLogin div input {
+    background-color: #565f5f;
+    color: #fff;
+}
+.formLoginContainerDark .formLogin div input::placeholder {
+    color: #fff;
+    opacity: 0.9;
+}
+
+@media only screen and (max-width: 390px) {
+    .formLoginContainer {
+        width: 100%;
+    }
+    .formLoginContainer .formLogin {
+        min-width: 90%;
+    }
+  }
