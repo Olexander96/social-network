@@ -8,23 +8,24 @@ import formStyles from "../../common/FormControls/FormControls.module.css";
 const ProfileDataEditForm = ({ handleSubmit, profile, error, editModeStatus }) => {
     return (
         <form className={styles.dataEditForm} onSubmit={handleSubmit}>
-            <div className={styles.mainBlock}>
+            <div className={styles.mainFormBlock}>
                 <div className={styles.aboutBlock}>
+                    <span>Main info:</span>
                     {error ? <div className={formStyles.formErrorSummary}>{error}</div> : null}
                     <label>
-                        Full name:
+                        <span>Full name</span>
                         {createField(Input, "Full name", "fullName", [])}
                     </label>
                     <label>
-                        About me:
+                        <span>About me:</span>
                         {createField(Textarea, "About me", "aboutMe", [])}
                     </label>
                     <label className={styles.jobCheck}>
-                        Looking for a job:
+                        <span>Looking for a job:</span>
                         {createField(Input, "", "lookingForAJob", [], { type: "checkbox" })}
                     </label>
                     <label>
-                        My professional skills:
+                        <span>My professional skills:</span>
                         {createField(Textarea, "My professional skills", "lookingForAJobDescription", [])}
                     </label>
                 </div>
@@ -34,7 +35,7 @@ const ProfileDataEditForm = ({ handleSubmit, profile, error, editModeStatus }) =
                         if (key !== 'vk' && key !== 'mainLink' && key !== 'twitter' && key !== 'youtube') {
                             return (
                                 <label className={styles.contactItem} key={key}>
-                                    {key}
+                                    <span>{key}</span>
                                     {createField(Input, key, "contacts." + key, [])}
                                 </label>
                             )
