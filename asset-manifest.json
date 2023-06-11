@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/social-network/static/css/main.a91916b0.css",
-    "main.js": "/social-network/static/js/main.345582d4.js",
-    "static/css/696.aa174d99.chunk.css": "/social-network/static/css/696.aa174d99.chunk.css",
-    "static/js/696.ebdbc1ed.chunk.js": "/social-network/static/js/696.ebdbc1ed.chunk.js",
+    "main.js": "/social-network/static/js/main.69dd5cba.js",
+    "static/css/696.3747a53d.chunk.css": "/social-network/static/css/696.3747a53d.chunk.css",
+    "static/js/696.0cbd330f.chunk.js": "/social-network/static/js/696.0cbd330f.chunk.js",
     "static/css/839.1ebf643b.chunk.css": "/social-network/static/css/839.1ebf643b.chunk.css",
     "static/js/839.718d08e2.chunk.js": "/social-network/static/js/839.718d08e2.chunk.js",
     "static/js/787.180946b8.chunk.js": "/social-network/static/js/787.180946b8.chunk.js",
@@ -22,15 +22,15 @@
     "static/media/edit-status-icon.svg": "/social-network/static/media/edit-status-icon.7ff23f91fd7ed019ce2894247aae6651.svg",
     "static/media/dialogs-navbar.svg": "/social-network/static/media/dialogs-navbar.e6757ff6a9bed3abfe9d0dba735daacc.svg",
     "main.a91916b0.css.map": "/social-network/static/css/main.a91916b0.css.map",
-    "main.345582d4.js.map": "/social-network/static/js/main.345582d4.js.map",
-    "696.aa174d99.chunk.css.map": "/social-network/static/css/696.aa174d99.chunk.css.map",
-    "696.ebdbc1ed.chunk.js.map": "/social-network/static/js/696.ebdbc1ed.chunk.js.map",
+    "main.69dd5cba.js.map": "/social-network/static/js/main.69dd5cba.js.map",
+    "696.3747a53d.chunk.css.map": "/social-network/static/css/696.3747a53d.chunk.css.map",
+    "696.0cbd330f.chunk.js.map": "/social-network/static/js/696.0cbd330f.chunk.js.map",
     "839.1ebf643b.chunk.css.map": "/social-network/static/css/839.1ebf643b.chunk.css.map",
     "839.718d08e2.chunk.js.map": "/social-network/static/js/839.718d08e2.chunk.js.map",
     "787.180946b8.chunk.js.map": "/social-network/static/js/787.180946b8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a91916b0.css",
-    "static/js/main.345582d4.js"
+    "static/js/main.69dd5cba.js"
   ]
 }
