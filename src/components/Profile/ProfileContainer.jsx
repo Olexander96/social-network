@@ -41,6 +41,7 @@ class ProfileContainer extends React.Component {
                 savePhoto =  { this.props.savePhoto }
                 saveProfileFormData = {this.props.saveProfileFormData}
                 editModeStatus = {this.props.editModeStatus}
+                themeType = {this.props.themeType}
             />
         )
     }
@@ -53,7 +54,8 @@ const mapStateToProps = (state) => {
         status: state.profilePage.status,
         authorizedUserId: state.auth.userId,
         isAuth: state.auth.isAuth,
-        editModeStatus: state.profilePage.editModeStatus
+        editModeStatus: state.profilePage.editModeStatus,
+        themeType: state.settings.themeType
     }
 }
 

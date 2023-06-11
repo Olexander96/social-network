@@ -2,6 +2,7 @@ import React from 'react';
 import Post from './Post/Post';
 import styles from './MyPosts.module.css';
 import MyNewPostReduxForm from './MyNewPostReduxForm';
+import classNames from 'classnames';
 
 
 const MyPosts = (props) => {
@@ -26,11 +27,12 @@ const MyPosts = (props) => {
                 profilePhoto={props.profilePage.profile ? props.profilePage.profile.photos.large : null}
                 onDeletePost = { onDeletePost }
                 postId = {p.id}
+                themeType = { props.themeType }
             />); // з кожним елементом масиву створили компоненту
 
         
         return (
-            <div className={styles.postsBlock}>
+            <div className={ classNames(styles.postsBlock, {[styles.postsDarkBlock]: props.themeType === 'DARK'}) }>
                 <h2>My Posts</h2>
                 <MyNewPostReduxForm onSubmit={ onAddPost } />
                 <div className={styles.posts}>

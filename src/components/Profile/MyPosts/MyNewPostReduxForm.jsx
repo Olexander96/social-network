@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { maxLength, required } from '../../../utils/validators/validators';
 import { Textarea } from "../../common/FormControls/FormControls";
 
-const currentMaxLength  = maxLength(15); //бо на пряму не працює
+const currentMaxLength  = maxLength(35); //бо на пряму не працює
 
 const MyNewPostForm = (props) => {
 
@@ -17,9 +17,7 @@ const MyNewPostForm = (props) => {
                     validate={ [ required, currentMaxLength ] }   //всі функції які валідують
                     placeholder='Post message'
             />
-            <div>
-                <button>Add Post</button>
-            </div>
+            <button>Add Post</button>
         </form>
     )
 };

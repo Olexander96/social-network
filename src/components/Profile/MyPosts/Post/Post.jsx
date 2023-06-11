@@ -19,9 +19,15 @@ const Post = (props) => {
     //   }, []);
 
     return (
-        <div className={ classNames(styles.item, {[styles.itemDeleting]: deleteStatus === true}) }>
+        <div className={ classNames(
+                styles.item, 
+                {
+                    [styles.itemDeleting]: deleteStatus === true,
+                    [styles.itemDark]: props.themeType === 'DARK'
+                }
+            ) }>
             <img src={ props.profilePhoto } alt="avatar"/>
-            <span>{props.message}</span>
+            <span className={styles.text} >{props.message}</span>
             <div className={styles.rightBlock} >
                 <div className={ styles.likesBlock }>
                     <LikesIcon className={ styles.likesIcon }/>

@@ -34,7 +34,7 @@ const ProfileStatusWithHooks = (props) => {
                         />
                      
                     : <div>
-                        <span>Status: { props.status || "-------"}</span>
+                        <span>Status: <p>{ props.status || "-------"}</p></span>
                         <EditStatusIcon onClick={ activateEditMode } className={styles.statusIcon}/>
                       </div>//тут показуємо статус який прийде з стейта по API 
                 }

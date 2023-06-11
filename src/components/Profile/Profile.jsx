@@ -14,8 +14,9 @@ const Profile = (props) => {
                 savePhoto={props.savePhoto}
                 saveProfileFormData = {props.saveProfileFormData}
                 editModeStatus = {props.editModeStatus}
+                themeType = {props.themeType}
             />
-            {props.isOwner ? <MyPostsContainer className = {styles.postsBlock} /> : null}
+            {props.isOwner ? <MyPostsContainer className = {styles.postsBlock} themeType = {props.themeType} /> : null}
         </div>
     )
 }

@@ -1,4 +1,7 @@
 .postsBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid #565f5f;
     padding: 5px;
     border-radius: 4px;
@@ -6,13 +9,34 @@
 }
 
 .postsBlock h2 {
-    margin-right: 15px;
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;
+    text-align: center;
+}
+.writePost {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.writePost div {
+    position: relative;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 17px;
+}
+/* error */
+.writePost div span {
+    position: absolute;
+    bottom: 4px;
 }
 
-.writePost textarea {
+.writePost div textarea {
+    text-align: center;
     border: 2px solid #565f5f;
     border-radius: 2px;
     padding: 5px 8px;
@@ -20,6 +44,7 @@
     margin-bottom: 3px;
     width: fit-content;
     display: block;
+    min-width: calc(100% - 20px)
 }
 .writePost textarea:focus {
     border: 2px solid #61DAFB;
@@ -35,23 +60,50 @@
 .writePost button {
     background-color: #565f5f;
     border: none;
-    padding: 5px;
+    padding: 5px 10px;
     color: #fff;
     font-weight: 700;
+    font-size: 18px;
     cursor: pointer;
     border-radius: 2px;
     width: fit-content;
-    margin-bottom: 10px;
-    margin-top: 5px;
 }
 
 .writePost button:hover {
     background-color: #61DAFB;
     color: #565f5f;
 }
+
 .posts {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px 0px 10px;
+}
+
+@media only screen and (min-width: 605px) {
+    .writePost {
+        min-width: 560px;
+    }
+}
+
+/* ТЕМНА ТЕМА */
+.postsDarkBlock {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.postsDarkBlock .writePost div textarea {
+    border: 2px solid #fff;
+}
+.postsDarkBlock .writePost textarea:focus {
+    border: 2px solid #61DAFB;
+}
+.postsDarkBlock .writePost button {
+    background-color: #fff;
+    color: #565f5f;
+}
+.postsDarkBlock .writePost button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
 }

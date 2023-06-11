@@ -1,4 +1,5 @@
 .item {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,6 +8,11 @@
     padding: 5px;
     color: #fff;
 }
+/* .item .text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+} */
 .item:not(:last-child) {
     margin-bottom: 15px;
 }
@@ -44,4 +50,13 @@
 }
 .rightBlock .deletePostIcon:hover {
     transform: scale(1.2);
+}
+
+/* ТЕМНА ТЕМА */
+.itemDark {
+    background-color: #fff;
+    color: #565f5f;
+}
+.itemDark .rightBlock .deletePostIcon {
+    fill: #565f5f;
 }

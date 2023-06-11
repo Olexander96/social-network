@@ -2,7 +2,7 @@ import React from "react";
 import styles from './ProfileInfo.module.css';
 import { ReactComponent as EditProfileDataIcon } from '../../../assets/images/profile/edit-status-icon.svg';
 
-const ProfileData =( {profile, isOwner, activateEditMode} ) => {
+const ProfileData =( {profile, isOwner, themeType, activateEditMode} ) => {
     const contactsList = [];
     
     for (let key in profile.contacts) {

@@ -6,9 +6,10 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileData from './ProfileData';
 import ProfileDataEditForm from './ProfileDataEditForm';
 import { ReactComponent as DownloadImage } from '../../../assets/images/profile/download-avatar-icon.svg';
+import classNames from 'classnames';
 
 
-const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, saveProfileFormData, editModeStatus} ) => {
+const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, saveProfileFormData, editModeStatus, themeType} ) => {
     const [editMode, setEditMode] = useState(false);
 
     const sendPhotoToServer = (event) => {
@@ -28,7 +29,7 @@ const ProfileInfo = ( {profile, status, updateUserStatus, isOwner, savePhoto, sa
         return <Preloader/>
     } 
     return (
-                <div className={styles.descriptionBlock}>
+                <div className={classNames(styles.descriptionBlock, {[styles.descriptionDarkBlock]: themeType === 'DARK'})}>
                     <div className={ styles.mainBlock }>
                         <div className={ styles.avatarBlock }>
                             <img src = { profile.photos.large || userPhoto } alt='user-avatar'/>

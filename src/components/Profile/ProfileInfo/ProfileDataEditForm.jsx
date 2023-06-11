@@ -20,9 +20,10 @@ const ProfileDataEditForm = ({ handleSubmit, profile, error, editModeStatus }) =
                         <span>About me:</span>
                         {createField(Textarea, "About me", "aboutMe", [])}
                     </label>
-                    <label className={styles.jobCheck}>
+                    <label className={ styles.jobCheck }>
                         <span>Looking for a job:</span>
                         {createField(Input, "", "lookingForAJob", [], { type: "checkbox" })}
+                        <span className={ styles.fake }></span>
                     </label>
                     <label>
                         <span>My professional skills:</span>

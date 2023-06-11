@@ -41,7 +41,7 @@
     fill: #fff;
 }
 
-.avatarBlock label:hover + .downloadIcon {
+.avatarBlock label:hover .downloadIcon {
     fill: #61DAFB;
 }
 
@@ -73,6 +73,11 @@
     font-weight: 700;
     cursor: pointer;
     margin-right: 10px;
+}
+
+.mainBlock .status p {
+    display: inline;
+    font-weight: 400;
 }
 
 .mainBlock .status .statusIcon {
@@ -160,6 +165,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #565f5f;
 }
 
 .dataEditForm .mainFormBlock {
@@ -174,9 +180,26 @@
 .aboutBlock {
     margin-bottom: 15px;
 }
+.dataEditForm button {
+    cursor: pointer;
+    padding: 5px 10px;
+    min-width: 80px;
+    color: #fff;
+    background-color: #565f5f;
+    font-weight: 700;
+    font-size: 18px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+}
+.dataEditForm button:hover {
+    background-color: #61DAFB;
+    color: #565f5f;
+}
 .aboutBlock span {
     text-align: center;
     margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 700;
 }
 .aboutBlock label {
     position: relative;
@@ -190,6 +213,7 @@
     text-align: start;
     display: block;
     margin-bottom: 5px;
+    font-size: 18px;
 }
 .aboutBlock label div {
     position: relative;
@@ -197,27 +221,73 @@
 }
 .aboutBlock label div input {
     display: block;
-    min-width: calc(100% - 9px)
+    min-width: calc(100% - 14px);
+    border: 2px solid #565f5f;
+    border-radius: 3px;
+    padding: 5px;
+    color: #565f5f;
+}
+.aboutBlock label div input:focus {
+    outline: none;
+    border: 2px solid #61DAFB;
 }
 .aboutBlock label div textarea {
     display: block;
-    min-width: calc(100% - 9px)
+    min-width: calc(100% - 14px);
+    border: 2px solid #565f5f;
+    border-radius: 3px;
+    padding: 5px;
+    color: #565f5f;
+}
+.aboutBlock label div textarea:focus {
+    outline: none;
+    border: 2px solid #61DAFB;
 }
 
 /* чекбокс */
 .aboutBlock .jobCheck {
+    position: relative;
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
 }
-.aboutBlock .jobCheck span {
-    margin-right: 10px;
+
+/* .fake {
+    cursor: pointer;
+    border: 1px solid transparent;
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #565f5f;
+    border-radius: 2px;
+    margin-left: 10px;
 }
+.fake::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #61DAFB;
+    opacity: 0;
+    transition: 0.3s;
+} */
 .aboutBlock .jobCheck div {
     min-width: fit-content;
 }
-.aboutBlock .jobCheck div input {
-    min-width: fit-content;
-}
+/* .aboutBlock .jobCheck div input {
+    display: none;
+} */
+/* .aboutBlock .jobCheck div input:checked + .aboutBlock .jobCheck .fake {
+    border: 1px solid #61DAFB !important ;
+} */
+/* .aboutBlock .jobCheck div input:checked + .fake::before {
+    opacity: 1;
+} */
 
 .contactsBlock {
     margin-bottom: 10px;
@@ -225,6 +295,8 @@
 .contactsBlock span {
     text-align: center;
     margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 25px;
 }
 .contactsBlock label {
     position: relative;
@@ -238,6 +310,7 @@
     text-align: start;
     display: block;
     margin-bottom: 5px;
+    font-size: 18px;
 }
 .contactsBlock label div {
     position: relative;
@@ -245,20 +318,82 @@
 }
 .contactsBlock label div input {
     display: block;
-    min-width: calc(100% - 9px)
+    min-width: calc(100% - 14px);
+    border: 2px solid #565f5f;
+    border-radius: 3px;
+    padding: 5px;
+    color: #565f5f;
+}
+.contactsBlock label div input:focus {
+    outline: none;
+    border: 2px solid #61DAFB;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 790px){
     .descriptionBlock {
         display: flex;
         flex-direction: row;
     }
     .descriptionBlock .mainBlock {
-        align-items: center;
-        justify-content: center;
         margin-right: 15px;
     }
+    /* форма */
+    .dataEditForm {
+        align-items: flex-start;
+    }
+    .dataEditForm  .mainFormBlock {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mainFormBlock .aboutBlock, .mainFormBlock .contactsBlock{
+        min-width: 230px;
+    }
+    .mainFormBlock .aboutBlock {
+        margin-right: 10px;
+    }
   }
+
+/* ТЕМНА ТЕМА */
+
+.descriptionDarkBlock {
+    border: 1px solid #fff;
+}
+
+.descriptionDarkBlock .avatarBlock img {
+    border: 2px solid #fff;
+}
+
+.descriptionDarkBlock .mainBlock .status {
+    color: #fff;
+}
+.descriptionDarkBlock .mainBlock .status .statusIcon {
+    fill: #fff;
+}
+.descriptionDarkBlock .mainBlock .status .statusIcon:hover {
+    fill: #61DAFB;
+}
+
+.descriptionDarkBlock .profileData {
+    color: #fff;
+}
+.descriptionDarkBlock .EditProfileDataIcon {
+    fill: #fff;
+}
+.descriptionDarkBlock .dataEditForm  {
+    color: #fff;
+}
+.descriptionDarkBlock .dataEditForm button {
+    color: #565f5f;
+    background-color: #fff;
+}
+.descriptionDarkBlock .dataEditForm button:hover {
+    background-color: #61DAFB;
+}
+
+
+
+
 
   
   

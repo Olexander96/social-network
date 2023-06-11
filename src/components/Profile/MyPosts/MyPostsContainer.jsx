@@ -2,10 +2,10 @@ import MyPosts from './MyPosts';
 import { addPostCreator, deletePostCreator} from '../../../redux/profile-reducer';
 import { connect } from 'react-redux';
 
-
 const mapStateToProps = (state) => {
     return {
-        profilePage: state.profilePage
+        profilePage: state.profilePage,
+        themeType: state.settings.themeType
     }
 }
 
