@@ -24,6 +24,10 @@ const securityInstance = axios.create({
     withCredentials: true,                                         
 });
 
+const newsInstance = axios.create({
+    baseURL: "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d3fc2a0829f64c50ac24157d98c18aa0",                                       
+});
+
 export const usersAPI = {
     getUsers (currentPage = 1, pageSize = 4) {
         return usersInstance
@@ -84,6 +88,12 @@ export const authAPI = {
 export const securityAPI = {
     getCaptcha () {
         return securityInstance.get(`/security/get-captcha-url`)
+    }
+};
+
+export const newsAPI = {
+    getCurrentNews () {
+        return newsInstance.get('').then(response => response.data)
     }
 };
 
