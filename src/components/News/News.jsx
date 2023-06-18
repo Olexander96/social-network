@@ -6,13 +6,13 @@ import { getNewsThunkCreator } from "../../redux/news-reducer";
 const News = (props) => {
 
     useEffect(() => {
-        props.getNewsThunkCreator();
+        // props.getNewsThunkCreator();
     }, [props])
 
     const newsArr = props.newsList.map(item => {
         
         return (
-            <div className={ styles.newsItem }>
+            <div className={ styles.newsItem } key={ props.newsList.indexOf(item)} >
                 <h3>{ item.title }</h3>
                 <img src={ item.urlToImage } alt="news-logo" />
                 <p>{ item.description }</p>
