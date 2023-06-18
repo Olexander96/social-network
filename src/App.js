@@ -19,7 +19,7 @@ import Settings from './components/Settings/Settings';
 import NewsContainer from './components/News/News';
 
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer')); //буде лінива загрузка обертаємо Suspense
-const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));//буде лінива загрузка обертаємо Suspense
+//const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));//буде лінива загрузка обертаємо Suspense
 
 class App extends React.Component {
 
@@ -52,11 +52,11 @@ class App extends React.Component {
                                     <ProfileContainer/>
                                 </Suspense>
                             } /> 
-                            <Route path="/dialogs/*" element={ 
+                            {/* <Route path="/dialogs/*" element={ 
                                 <Suspense fallback={ <Preloader/> }>
                                     <DialogsContainer/>
                                 </Suspense>
-                             } />
+                             } /> */}
                             <Route path="/news/*" element={ <NewsContainer/> } />
                             <Route path="/users/*" element={ <UsersContainer/> } />
                             <Route path="/login/*" element={ <Login/> } /> 

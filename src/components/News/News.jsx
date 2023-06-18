@@ -1,7 +1,8 @@
-import React, { useEffect }  from "react";
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styles from './News.module.css';
-import { getNewsThunkCreator } from "../../redux/news-reducer";
+import { getNewsThunkCreator } from '../../redux/news-reducer';
+import classNames from 'classnames';
 
 const News = (props) => {
 
@@ -10,32 +11,39 @@ const News = (props) => {
     }, [props])
 
     const newsArr = props.newsList.map(item => {
-        
+
+        let data = item.publishedAt.split('T')[0].split('-').reverse().join('.');
+
         return (
-            <div className={ styles.newsItem } key={ props.newsList.indexOf(item)} >
-                <h3>{ item.title }</h3>
-                <img src={ item.urlToImage } alt="news-logo" />
-                <p>{ item.description }</p>
-                <div className={ styles.newsItemDownBlock }>
-                    <span>{ item.publishedAt }</span>
-                    <span>author: { item.author }</span>
-                    <a href={ item.url }>more info</a>
+            <li className={styles.newsItem} key={props.newsList.indexOf(item)} >
+                <div className={styles.newsItemUpperBlock}>
+                    <h2>{item.title}</h2>
+                    <img src={item.urlToImage} alt="news-logo" />
+                    <p>{item.description}</p>
                 </div>
-            </div>
-        ) 
+                <div className={styles.newsItemDownBlock}>
+                    <span>{ data } </span>
+                    <span> { item.author }</span>
+                    <a href={ item.url } target="_blank" rel="noreferrer">Link</a>
+                </div>
+            </li>
+        )
     });
 
     return (
-        <div className={ styles.newsBlock}>
-            <h2>News:</h2>
-            { newsArr }
+        <div className={ classNames(styles.newsBlock, {[styles.newsBlockDark]: props.themeType === 'DARK'}) }>
+            <h1>NEWS:</h1>
+            <ul className={styles.newsListBlock}>
+                {newsArr}
+            </ul>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        newsList: state.news.newsList
+        newsList: state.news.newsList,
+        themeType: state.settings.themeType
     }
 };
 

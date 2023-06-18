@@ -24,9 +24,9 @@ const Navbar = ({themeType}) => {
                         </NavLink> 
                     </li> 
                     <li className={styles.item}>
-                        <NavLink to="/dialogs" className = {setActive}>
-                            <DialogsIcon className={styles.icon}/>
-                            <span>Dialogs</span>
+                        <NavLink to="/users" className = {setActive}>
+                            <UsersIcon className={styles.icon}/>
+                            <span>Users</span>
                         </NavLink>
                     </li>
                     <li className={styles.item}>
@@ -36,21 +36,21 @@ const Navbar = ({themeType}) => {
                         </NavLink>
                     </li>
                     <li className={styles.item}>
-                        <NavLink to="/music" className = {setActive}>
-                            <MusicIcon className={styles.icon}/>
-                            <span>Music</span>
-                        </NavLink>
-                    </li>
-                    <li className={styles.item}>
-                        <NavLink to="/users" className = {setActive}>
-                            <UsersIcon className={styles.icon}/>
-                            <span>Users</span>
-                        </NavLink>
-                    </li>
-                    <li className={styles.item}>
                         <NavLink to="/settings" className = {setActive}>
                             <SettingsIcon className={styles.icon}/>
                             <span>Settings</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink to="/dialogs" className = {setActive}>
+                            <DialogsIcon className={styles.icon}/>
+                            <span>Dialogs</span>
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink to="/music" className = {setActive}>
+                            <MusicIcon className={styles.icon}/>
+                            <span>Music</span>
                         </NavLink>
                     </li>
                 </ul>
